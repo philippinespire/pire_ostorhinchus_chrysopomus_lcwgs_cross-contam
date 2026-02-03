@@ -15,6 +15,9 @@
 ## Guidance For Future Edits
 - Do not change data handling logic without explicitly discussing assumptions above.
 - Prefer adding diagnostics over dropping records when conflicts are detected.
+- Follow the data organization principles in:
+  `https://github.com/tamucc-comp-bio/how_to/blob/main/howto_organize_data.md`
+- Use descriptive file and column names that are easy to interpret.
 
 ## Planning And Tracking
 - Keep the current objective plan in `TODO.md`.

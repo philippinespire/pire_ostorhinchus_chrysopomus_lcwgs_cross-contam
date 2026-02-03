@@ -8,6 +8,7 @@ Notes:
 
 ## 1. Define admixed criteria from `data/och_admixture_values.csv` and produce a reproducible list of admixed and pure individuals.
 - 2026-02-03 17:12 CST — Generated continuous admixture summaries from `data/och_admixture_values.csv` using cluster probabilities (no hard thresholds). Outputs: `output/admixture_long.csv`, `output/admixture_metrics.csv`, `output/admixture_summary.csv`, `output/admixture_qc.csv`. Script: `scripts/01_admixture_summary.R`.
+- [Plan](PLANS/TODO-01.md)
 - [Decision log](DECISIONS_WORK/TODO-01.md)
 
 ---
