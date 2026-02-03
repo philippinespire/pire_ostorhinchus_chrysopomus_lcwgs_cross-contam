@@ -6,6 +6,7 @@ Goal: Build a unified key table that links admixture results to `data/och_extrac
 - `output/admixture_summary.csv` (from TODO #1)
 - `data/och_extractions_only.xlsx`
 - `data/Och_SSLibrariesforCapture_metadata.xlsx`
+- `data/pire_ostorhinchus_chrysopomus_lcwgs/*/fq_raw/decode_sedlist.txt`
 
 ## Proposed Steps
 1. Inspect column names and key identifiers in the extraction and library metadata files.
@@ -14,9 +15,10 @@ Goal: Build a unified key table that links admixture results to `data/och_extrac
 4. Create extraction metadata key(s) based on `individual_id` (and other available identifiers) while keeping all records.
 5. Create library metadata key(s) based on `Extraction_ID`, `Library_id`, and any individual-level identifiers.
 6. Join admixture to extraction metadata using the canonical individual key; summarize any one-to-many relationships without dropping rows.
-7. Join the result to library metadata using `Extraction_ID` when available, otherwise fall back to individual key with clear diagnostics.
-8. Flag known conflicts (`OcA0102311B`, `OchACat039`) and any mismatched or missing joins.
-9. Produce a unified key table plus a diagnostics table of join outcomes.
+7. Use decode files to reconcile sequence naming differences between metadata and downstream files; capture any alternate name mappings.
+8. Join the result to library metadata using `Extraction_ID` when available, otherwise fall back to individual key with clear diagnostics.
+9. Flag known conflicts (`OcA0102311B`, `OchACat039`) and any mismatched or missing joins.
+10. Produce a unified key table plus a diagnostics table of join outcomes.
 
 ## Outputs
 - `output/admixture_extraction_library_key.csv` (one row per individual with join fields)
