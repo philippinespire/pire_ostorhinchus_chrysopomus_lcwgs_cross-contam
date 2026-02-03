@@ -13,8 +13,9 @@ Notes:
 ---
 
 ## 2. Build a unified key table that links admixture results to `data/och_extractions_only.xlsx` and `data/Och_SSLibrariesforCapture_metadata.xlsx`, preserving one row per individual and flagging known conflicts.
-- No entries yet.
+- 2026-02-03 17:36 CST — Built unified key table and diagnostics linking admixture, extraction, library, and decode mappings. Outputs: `output/admixture_extraction_library_key.csv`, `output/admixture_extraction_library_diagnostics.csv`. Script: `scripts/02_build_key_table.R`.
 - [Plan](PLANS/TODO-02.md)
+- [Decision log](DECISIONS_WORK/TODO-02.md)
 
 ---
 
