@@ -1,3 +1,4 @@
+#### SETUP ####
 if (dir.exists("r_libs")) {
   .libPaths(c("r_libs", .libPaths()))
 }
@@ -13,12 +14,17 @@ dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 n_permutations <- 1000
 
+#### LOAD INPUTS ####
 admixture_key <- readr::read_csv(
   file = file.path(output_dir, "admixture_extraction_library_key.csv"),
   show_col_types = FALSE
 )
 
-admixture_metrics <- admixture_key %>%
+extractions_raw <- readxl::read_excel("data/och_extractions_only.xlsx")
+
+#### BUILD ANALYSIS TABLE ####
+admixture_metrics <- 
+  admixture_key %>%
   select(
     individual_key,
     admixedness,
@@ -27,9 +33,8 @@ admixture_metrics <- admixture_key %>%
     conflict_flag
   )
 
-extractions_raw <- readxl::read_excel("data/och_extractions_only.xlsx")
-
-extractions_key <- extractions_raw %>%
+extractions_key <- 
+  extractions_raw %>%
   transmute(
     individual_id,
     extraction_id,
@@ -40,17 +45,21 @@ extractions_key <- extractions_raw %>%
     individual_num = suppressWarnings(as.integer(stringr::str_extract(individual_id, "\\d+")))
   )
 
-subsampling_joined <- extractions_key %>%
+subsampling_joined <- 
+  extractions_key %>%
   left_join(admixture_metrics, by = "individual_key")
 
-subsampling_grouped <- subsampling_joined %>%
+subsampling_grouped <- 
+  subsampling_joined %>%
   arrange(date_subsampling_date, subsampler, individual_num, individual_id) %>%
   group_by(date_subsampling_date, subsampler)
 
-group_list <- subsampling_grouped %>%
+group_list <- 
+  subsampling_grouped %>%
   group_split()
 
-group_keys <- subsampling_grouped %>%
+group_keys <- 
+  subsampling_grouped %>%
   group_keys()
 
 metrics_from_admix <- function(admix_values) {
@@ -112,6 +121,7 @@ summarise_perm <- function(perm_values, observed_value) {
   tibble(perm_mean = perm_mean, perm_sd = perm_sd, p_value = p_value)
 }
 
+#### PERMUTATION TESTS ####
 results <- purrr::map2(
   group_list,
   seq_along(group_list),
@@ -125,7 +135,8 @@ results <- purrr::map2(
     admix_values <- group_df$admixedness
     admix_nonmissing <- admix_values[!is.na(admix_values)]
     observed_metrics <- metrics_from_admix(admix_nonmissing)
-    observed_row <- observed_metrics %>%
+    observed_row <- 
+      observed_metrics %>%
       mutate(
         date_subsampling_date = key_row$date_subsampling_date,
         subsampler = key_row$subsampler,
@@ -166,7 +177,8 @@ results <- purrr::map2(
         permutation = NA_integer_
       )
     }
-    perm_metrics_group <- perm_metrics %>%
+    perm_metrics_group <- 
+      perm_metrics %>%
       mutate(
         subsampling_group = group_id,
         date_subsampling_date = key_row$date_subsampling_date,
@@ -217,10 +229,12 @@ results <- purrr::map2(
   }
 )
 
+#### AGGREGATE OUTPUTS ####
 adjacency_metrics <- purrr::map_dfr(results, "metrics")
 permutation_summary <- purrr::map_dfr(results, "perm_summary")
 permutation_distributions <- purrr::map_dfr(results, "perm_dist")
 
+#### EXPORT OUTPUTS ####
 readr::write_csv(
   adjacency_metrics,
   file.path(output_dir, "tissue_subsampling_adjacency_metrics.csv")

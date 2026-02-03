@@ -1,13 +1,17 @@
+#### SETUP ####
 library(tidyverse)
 
 dir.create("output", showWarnings = FALSE, recursive = TRUE)
 
+#### LOAD DATA ####
 admixture_raw <- readr::read_csv(
   "data/och_admixture_values.csv",
   show_col_types = FALSE
 )
 
-admixture_long <- admixture_raw %>%
+#### STANDARDIZE IDENTIFIERS ####
+admixture_long <- 
+  admixture_raw %>%
   mutate(
     sample = Sample,
     sample_id = stringr::str_replace(sample, "\\..*$", "")
@@ -21,19 +25,24 @@ admixture_long <- admixture_raw %>%
     prop = Prop
   )
 
-cluster_order <- admixture_long %>%
+cluster_order <- 
+  admixture_long %>%
   distinct(cluster) %>%
   arrange(cluster) %>%
   pull(cluster)
 
-admixture_wide <- admixture_long %>%
+#### BUILD WIDE TABLE ####
+admixture_wide <- 
+  admixture_long %>%
   mutate(cluster = factor(cluster, levels = cluster_order)) %>%
   tidyr::pivot_wider(
     names_from = cluster,
     values_from = prop
   )
 
-admixture_metrics <- admixture_long %>%
+#### CALCULATE METRICS ####
+admixture_metrics <- 
+  admixture_long %>%
   group_by(sample_id, sample, era, location) %>%
   summarise(
     prop_sum = sum(prop, na.rm = TRUE),
@@ -45,7 +54,8 @@ admixture_metrics <- admixture_long %>%
   ) %>%
   mutate(admixedness = 1 - max_prop)
 
-admixture_qc <- admixture_long %>%
+admixture_qc <- 
+  admixture_long %>%
   group_by(sample_id, sample, era, location) %>%
   summarise(
     n_clusters = n(),
@@ -54,12 +64,14 @@ admixture_qc <- admixture_long %>%
     .groups = "drop"
   )
 
-admixture_summary <- admixture_wide %>%
+admixture_summary <- 
+  admixture_wide %>%
   left_join(
     admixture_metrics,
     by = c("sample_id", "sample", "era", "location")
   )
 
+#### EXPORT OUTPUTS ####
 readr::write_csv(admixture_long, "output/admixture_long.csv")
 readr::write_csv(admixture_metrics, "output/admixture_metrics.csv")
 readr::write_csv(admixture_summary, "output/admixture_summary.csv")

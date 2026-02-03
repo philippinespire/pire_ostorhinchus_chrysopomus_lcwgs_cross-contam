@@ -1,3 +1,4 @@
+#### SETUP ####
 if (dir.exists("r_libs")) {
   .libPaths(c("r_libs", .libPaths()))
 }
@@ -11,17 +12,33 @@ library(purrr)
 output_dir <- "output"
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
+#### LOAD INPUTS ####
 admixture_summary <- readr::read_csv(
   file = file.path(output_dir, "admixture_summary.csv"),
   show_col_types = FALSE
 )
 
-admixture_key <- admixture_summary %>%
-  mutate(individual_key = str_replace_all(sample_id, "[-_]", ""))
-
 extractions_raw <- readxl::read_excel("data/och_extractions_only.xlsx")
 
-extractions_key <- extractions_raw %>%
+library_raw <- readxl::read_excel(
+  path = "data/Och_SSLibrariesforCapture_metadata.xlsx",
+  sheet = "Sheet1"
+)
+
+decode_files <- list.files(
+  path = "data/pire_ostorhinchus_chrysopomus_lcwgs",
+  pattern = "decode_sedlist\\.txt$",
+  recursive = TRUE,
+  full.names = TRUE
+)
+
+#### CANONICALIZE KEYS ####
+admixture_key <- 
+  admixture_summary %>%
+  mutate(individual_key = str_replace_all(sample_id, "[-_]", ""))
+
+extractions_key <- 
+  extractions_raw %>%
   transmute(
     extraction_individual_id = individual_id,
     extraction_id = extraction_id,
@@ -29,7 +46,8 @@ extractions_key <- extractions_raw %>%
     extraction_id_key = str_replace_all(extraction_id, "[-_]", "")
   )
 
-extractions_summary <- extractions_key %>%
+extractions_summary <- 
+  extractions_key %>%
   group_by(extraction_individual_key) %>%
   summarise(
     extraction_individual_ids = paste(unique(extraction_individual_id), collapse = ";"),
@@ -38,12 +56,8 @@ extractions_summary <- extractions_key %>%
     .groups = "drop"
   )
 
-library_raw <- readxl::read_excel(
-  path = "data/Och_SSLibrariesforCapture_metadata.xlsx",
-  sheet = "Sheet1"
-)
-
-library_key <- library_raw %>%
+library_key <- 
+  library_raw %>%
   transmute(
     library_individual_id = Individual_ID,
     library_extraction_id = Extraction_ID,
@@ -61,7 +75,8 @@ library_key <- library_raw %>%
     library_extraction_key = str_replace_all(Extraction_ID, "[-_]", "")
   )
 
-library_summary <- library_key %>%
+library_summary <- 
+  library_key %>%
   group_by(library_individual_key) %>%
   summarise(
     library_individual_ids = paste(unique(library_individual_id), collapse = ";"),
@@ -76,28 +91,25 @@ library_summary <- library_key %>%
     .groups = "drop"
   )
 
-decode_files <- list.files(
-  path = "data/pire_ostorhinchus_chrysopomus_lcwgs",
-  pattern = "decode_sedlist\\.txt$",
-  recursive = TRUE,
-  full.names = TRUE
-)
+#### PARSE DECODE FILES ####
+decode_lines <- 
+  purrr::map_dfr(
+    decode_files,
+    function(file_path) {
+      run_dir <- stringr::str_extract(file_path, "[^/]+_sequencing_run")
+      tibble(
+        run_dir = run_dir,
+        line = readr::read_lines(file_path)
+      )
+    }
+  )
 
-decode_lines <- purrr::map_dfr(
-  decode_files,
-  function(file_path) {
-    run_dir <- stringr::str_extract(file_path, "[^/]+_sequencing_run")
-    tibble(
-      run_dir = run_dir,
-      line = readr::read_lines(file_path)
-    )
-  }
-)
-
-decode_map_raw <- decode_lines %>%
+decode_map_raw <- 
+  decode_lines %>%
   filter(str_starts(line, "s/"))
 
-decode_map_parsed <- decode_map_raw %>%
+decode_map_parsed <- 
+  decode_map_raw %>%
   mutate(match = str_match(line, "^s/([^/]+)/([^/]+)/$")) %>%
   transmute(
     run_dir,
@@ -106,14 +118,16 @@ decode_map_parsed <- decode_map_raw %>%
   ) %>%
   filter(!is.na(seq_name), seq_name != "Sequence")
 
-decode_map_keys <- decode_map_parsed %>%
+decode_map_keys <- 
+  decode_map_parsed %>%
   mutate(
     extraction_id = str_extract(sequence_id, "Och-[A-Za-z]+_[0-9]{3}-Ex[0-9]+"),
     individual_id = str_replace(extraction_id, "-Ex[0-9]+$", ""),
     individual_key = str_replace_all(individual_id, "[-_]", "")
   )
 
-decode_summary <- decode_map_keys %>%
+decode_summary <- 
+  decode_map_keys %>%
   group_by(individual_key) %>%
   summarise(
     decode_seq_names = paste(unique(seq_name), collapse = ";"),
@@ -122,35 +136,44 @@ decode_summary <- decode_map_keys %>%
     .groups = "drop"
   )
 
-library_sequence_lookup <- library_key %>%
+library_sequence_lookup <- 
+  library_key %>%
   transmute(seq = sequence_id) %>%
   bind_rows(library_key %>% transmute(seq = full_seq_decode)) %>%
   filter(!is.na(seq)) %>%
   distinct()
 
-library_seqname_lookup <- library_key %>%
+library_seqname_lookup <- 
+  library_key %>%
   transmute(seq_name = novogene_seq_id) %>%
   bind_rows(library_key %>% transmute(seq_name = full_seq_name)) %>%
   bind_rows(library_key %>% transmute(seq_name = test_lane_seq_name)) %>%
   filter(!is.na(seq_name)) %>%
   distinct()
 
-decode_missing_seq_id <- decode_map_keys %>%
+decode_missing_seq_id <- 
+  decode_map_keys %>%
   anti_join(library_sequence_lookup, by = c("sequence_id" = "seq"))
 
-decode_missing_seq_name <- decode_map_keys %>%
+decode_missing_seq_name <- 
+  decode_map_keys %>%
   anti_join(library_seqname_lookup, by = c("seq_name" = "seq_name"))
 
-admixture_with_extraction <- admixture_key %>%
+#### BUILD UNIFIED KEY TABLE ####
+admixture_with_extraction <- 
+  admixture_key %>%
   left_join(extractions_summary, by = c("individual_key" = "extraction_individual_key"))
 
-admixture_with_library <- admixture_with_extraction %>%
+admixture_with_library <- 
+  admixture_with_extraction %>%
   left_join(library_summary, by = c("individual_key" = "library_individual_key"))
 
-admixture_with_decode <- admixture_with_library %>%
+admixture_with_decode <- 
+  admixture_with_library %>%
   left_join(decode_summary, by = "individual_key")
 
-admixture_key_table <- admixture_with_decode %>%
+admixture_key_table <- 
+  admixture_with_decode %>%
   mutate(
     conflict_flag = case_when(
       str_detect(coalesce(sample_id, ""), "OcA0102311B") |
@@ -164,7 +187,9 @@ admixture_key_table <- admixture_with_decode %>%
     missing_decode = is.na(decode_seq_names)
   )
 
-unmatched_extractions <- extractions_summary %>%
+#### DIAGNOSTICS ####
+unmatched_extractions <- 
+  extractions_summary %>%
   anti_join(admixture_key, by = c("extraction_individual_key" = "individual_key")) %>%
   transmute(
     diagnostic = "extraction_without_admixture",
@@ -172,7 +197,8 @@ unmatched_extractions <- extractions_summary %>%
     count = n_extractions
   )
 
-unmatched_library <- library_summary %>%
+unmatched_library <- 
+  library_summary %>%
   anti_join(admixture_key, by = c("library_individual_key" = "individual_key")) %>%
   transmute(
     diagnostic = "library_without_admixture",
@@ -180,7 +206,8 @@ unmatched_library <- library_summary %>%
     count = n_library_rows
   )
 
-unmatched_decode <- decode_summary %>%
+unmatched_decode <- 
+  decode_summary %>%
   anti_join(admixture_key, by = "individual_key") %>%
   transmute(
     diagnostic = "decode_without_admixture",
@@ -243,5 +270,12 @@ diagnostics <- bind_rows(
   unmatched_decode
 )
 
-readr::write_csv(admixture_key_table, file.path(output_dir, "admixture_extraction_library_key.csv"))
-readr::write_csv(diagnostics, file.path(output_dir, "admixture_extraction_library_diagnostics.csv"))
+#### EXPORT OUTPUTS ####
+readr::write_csv(
+  admixture_key_table,
+  file.path(output_dir, "admixture_extraction_library_key.csv")
+)
+readr::write_csv(
+  diagnostics,
+  file.path(output_dir, "admixture_extraction_library_diagnostics.csv")
+)
