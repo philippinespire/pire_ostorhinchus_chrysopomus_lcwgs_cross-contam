@@ -21,9 +21,12 @@
 - When starting work on a plan item, add it to `INPROGRESS.md` and keep that file updated with active work only.
 - When a todo is finished, append a dated entry to `COMPLETEDWORK.md` in reverse chronological order (newest first).
 - Record decision logic and work rationale in `DECISIONS_WORK/TODO-XX.md` using reverse-chronological, timestamped entries.
+- Before starting each TODO, create a plan in `PLANS/TODO-XX.md` and link it in `COMPLETEDWORK.md`.
 
 ## R Workflow Preferences
 - Prefer R for analysis work.
 - Use tidyverse-style pipelines where possible.
 - Avoid modifying the same data container repeatedly; use unrolled pipeline style.
 - Never save a data container into itself.
+- Document code and break scripts into collapsable sections using `#### SECTION NAME ####` notation.
+- When a pipe starts after assignment, place a line break right after `<- `.

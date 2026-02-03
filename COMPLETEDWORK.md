@@ -20,7 +20,9 @@ Notes:
 ---
 
 ## 3. Test tissue subsampling order effects by sorting by `date_subsampling`, `subsampler`, `individual_id` and evaluating adjacency or periodic contamination patterns with permutation baselines.
-- No entries yet.
+- 2026-02-03 17:48 CST — Tested tissue subsampling order effects with adjacency and periodic metrics plus permutation baselines. Outputs: `output/tissue_subsampling_adjacency_metrics.csv`, `output/tissue_subsampling_permutation_summary.csv`, `output/tissue_subsampling_permutation_distributions.csv`. Script: `scripts/03_tissue_subsampling_tests.R`.
+- [Plan](PLANS/TODO-03.md)
+- [Decision log](DECISIONS_WORK/TODO-03.md)
 
 ---
 
