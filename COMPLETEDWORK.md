@@ -14,6 +14,7 @@ Notes:
 
 ## 2. Build a unified key table that links admixture results to `data/och_extractions_only.xlsx` and `data/Och_SSLibrariesforCapture_metadata.xlsx`, preserving one row per individual and flagging known conflicts.
 - No entries yet.
+- Plan: `PLANS/TODO-02.md`
 
 ---
 
