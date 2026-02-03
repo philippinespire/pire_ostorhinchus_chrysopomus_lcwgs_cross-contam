@@ -14,3 +14,8 @@
 ## Guidance For Future Edits
 - Do not change data handling logic without explicitly discussing assumptions above.
 - Prefer adding diagnostics over dropping records when conflicts are detected.
+
+## Planning And Tracking
+- Keep the current objective plan in `TODO.md`.
+- When starting work on a plan item, add it to `INPROGRESS.md` and keep that file updated with active work only.
+- When a todo is finished, append a dated entry to `COMPLETEDWORK.md` in reverse chronological order (newest first).
