@@ -1,0 +1,10 @@
+# Data
+
+This directory contains the analysis inputs and mirrors the Wahab repo layout for the Och LCWGS project.
+
+Contents:
+- `och_admixture_values.csv`: individual-level admixture summaries.
+- `och_extractions_only.xlsx`: extraction metadata and tissue subsampling notes.
+- `Och_SSLibrariesforCapture_metadata.xlsx`: library construction and sequencing metadata.
+- `seq_reports/`: sequencing summary spreadsheets from Novogene.
+- `pire_ostorhinchus_chrysopomus_lcwgs/`: Wahab repo-style layout for sequencing runs and GenErode symlink captures.

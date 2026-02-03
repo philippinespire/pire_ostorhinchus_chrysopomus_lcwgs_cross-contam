@@ -4,7 +4,7 @@
 - This repository contains analysis inputs and scripts for the Och (ostorhinchus_chrysopomus) project.
 
 ## Data Assumptions
-- In `och_admixture_values.csv`, each unique sample ID represents a single individual.
+- In `data/och_admixture_values.csv`, each unique sample ID represents a single individual.
 - The FASTQ files were merged by a student; merge success is uncertain, but the admixture table should still be treated as individual-level data.
 
 ## Decode Conflicts
@@ -19,3 +19,9 @@
 - Keep the current objective plan in `TODO.md`.
 - When starting work on a plan item, add it to `INPROGRESS.md` and keep that file updated with active work only.
 - When a todo is finished, append a dated entry to `COMPLETEDWORK.md` in reverse chronological order (newest first).
+
+## R Workflow Preferences
+- Prefer R for analysis work.
+- Use tidyverse-style pipelines where possible.
+- Avoid modifying the same data container repeatedly; use unrolled pipeline style.
+- Never save a data container into itself.
