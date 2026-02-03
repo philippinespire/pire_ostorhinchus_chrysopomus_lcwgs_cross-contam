@@ -1,6 +1,6 @@
 # Objectives
 
-Determine whether cross contamination can explain any of the admixed individuals in the `och_admixture_values.csv` file.
+Determine whether cross contamination can explain any of the admixed individuals in the `data/och_admixture_values.csv` file.
 
 ---
 
@@ -12,7 +12,7 @@ Don't modify this file.
 
 cross contamination during tissue subsampling and extraction could result in a pattern where individuals appear admixed because of DNA carry over from one sample to the next.  
 
-* the `och_extractions_only.xlsx` contains a notes column where potential cross contamination events were logged if detected by students in the lab.  
+* the `data/och_extractions_only.xlsx` contains a notes column where potential cross contamination events were logged if detected by students in the lab.  
 
 * The individuals (individual_id) were given their id as they were processed, so we can assume that the individuals were processed in numerical order based on the `individual_id`, `date_subsampling`, `subsampler` columns.  
 	* assume that when sorting by date_subampling, subsampler, individual_id that cross contam was possible within the interaction of data_subsampling and subsampler.  
@@ -33,7 +33,7 @@ For extraction, again cross contam was possible
 downstream, it might be possible that cross contamination occurred in transferring dna extract to the 96 well microplates.  
 
 * Following extraction, dna was transferring into microplates. 
-	* In `och_extractions_only.xlsx`, the `plateid` column is the parent or base name for all plates containing dna extract. 
+	* In `data/och_extractions_only.xlsx`, the `plateid` column is the parent or base name for all plates containing dna extract. 
 	* the `elution[1234]_plateid` is the specific plate id for each elution from the silica membranes used for dna extraction. 
 	* the `elution[1234]_column` and `elution[1234]_row` contain the well address for each extract (`extraction_id`).  
 * We are interested in testing for a non-random pattern in the occurence of admixed individuals with respect to position in the extraction plate     
@@ -43,7 +43,7 @@ downstream, it might be possible that cross contamination occurred in transferri
 
 cross contamination may occur during library construction when samples are transferred from the dna extract plates to the library plates, or due to pipetting errors that occur prior to pcr where the libraries are uniquely indexed.
 
-* library construction is documented in `Och_SSLibrariesforCapture_metadata.xlsx`
+* library construction is documented in `data/Och_SSLibrariesforCapture_metadata.xlsx`
 	* the `Extraction_ID` and `Library_id` columns uniquely identify each row.
 	* the dna extract plate names are in the 5th column (E) 'Sample Plate'
 		* the positions of the dna in the dna extract plates are columns 6 (F) and 7 (G), `Sample Column` and `Sample Row`.
@@ -62,16 +62,16 @@ cross contamination may occur due to the assignment of the same indexes to diffe
 
 * we employ illumina truseq with dual indexing.
 	* each library within a sequencing run should have a unique combination of indexes
-	* there were 3 sequencing runs for Och. These are documented in the `seq_reports` dir which contains the names of the sequences and some stats about the sequencing output.
-		* test lane: `seq_reports/PIRE-Cha-Och-TestLane_SeqSummary.xlsx`
-		* test lane 2: `seq_reports/PIRE_Och-TestLane2_SeqSummary.xlsx`
-		* full lane: `seq_reports/PIRE-Adu-Och-Sde-Sin_December2024_SeqSummary.xlsx`
+	* there were 3 sequencing runs for Och. These are documented in the `data/seq_reports` dir which contains the names of the sequences and some stats about the sequencing output.
+		* test lane: `data/seq_reports/PIRE-Cha-Och-TestLane_SeqSummary.xlsx`
+		* test lane 2: `data/seq_reports/PIRE_Och-TestLane2_SeqSummary.xlsx`
+		* full lane: `data/seq_reports/PIRE-Adu-Och-Sde-Sin_December2024_SeqSummary.xlsx`
 
 * pools of libraries would be 
 	* first sequenced on a small "test lane" to help with balancing sequencing effort between libs
 	* second sequenced on a larger "full lane" where libs would be rebalanced/normalized based on the representation of each library in the test lane
 
-* library construction is documented in `Och_SSLibrariesforCapture_metadata.xlsx`
+* library construction is documented in `data/Och_SSLibrariesforCapture_metadata.xlsx`
 	* The indexes assigned to each library are documented
 		* column AG, `i5 Primer`, the name of the i5 primer where each indexed primer has a different name
 		* column AH, `i5 Index for Novogene`, the index sequence
@@ -94,7 +94,7 @@ cross contamination may occur due to the assignment of the same indexes to diffe
 
 cross contamination should not occur during library construction when samples are transferred from the library plates to the library dilution plates, which are necessary when samples must be diluted to achieve the desired amount of DNA to be pooled per lib, because the DNA is already indexed at this point. A problem here might be related to something with the library contruction upstream.
 
-* library construction is documented in `Och_SSLibrariesforCapture_metadata.xlsx`
+* library construction is documented in `data/Och_SSLibrariesforCapture_metadata.xlsx`
 	* The samples are transferred from the library plate to the library dilution plate 
 	* the library dilution plate names are in column BP 'Dilution Plate'
 		* the positions of the library in the library dilution plates are columns BQ and BR, `Dilution Plate Col` and `Dilution Plate Row`.
@@ -111,7 +111,7 @@ cross contamination may occur due to the assignment of the same sequence names t
 	* each unique combination of indexes within a seq run should have a unique seq name
 	* we gave the same libraries from the same individuals different seq names in the test lanes versus the full lanes
 
-* library construction is documented in `Och_SSLibrariesforCapture_metadata.xlsx`
+* library construction is documented in `data/Och_SSLibrariesforCapture_metadata.xlsx`
 	* The seq names assigned to each library are documented
 		* column CD, `Test Lane Seq Name`
 			* the seq name assigned to a given library in the test lane seq run
@@ -153,20 +153,20 @@ cross contamination may occur due to the assignment of the same sequence names t
 
 cross contamination may occur due to errors in creating the sequencing decode files which associate the two sequencing names given to each library in each seq run.
 
-* The decode files are in `*_sequencing_run/*/decode_sedlist.txt`
+* The decode files are in `data/pire_ostorhinchus_chrysopomus_lcwgs/*_sequencing_run/fq_raw/decode_sedlist.txt`
 	* `1st` and `2nd_sequencing_run` dirs are the same libs and seqs ("test lane")
 		* ignore `1st_sequencing_run` dir
-		* test against metadata file `Och_SSLibrariesforCapture_metadata.xlsx`
+		* test against metadata file `data/Och_SSLibrariesforCapture_metadata.xlsx`
 			* libs (rows) differentiated by column BX `Pool Round` = "Test Lane"
 			* compare first name col in decode file to column CE `NovoGeneSeqID`
 			* compare second name col in decode file to column CF `Sequence_ID`
 	* `3rd_sequencing_run` dir is "test lane 2"
-		* test against metadata file `Och_SSLibrariesforCapture_metadata.xlsx`
+		* test against metadata file `data/Och_SSLibrariesforCapture_metadata.xlsx`
 			* libs (rows) differentiated by column BX `Pool Round` = "Test Lane 2"
 			* compare first name col in decode file to column CE `NovoGeneSeqID`
 			* compare second name col in decode file to column CF `Sequence_ID`
 	* `4th_sequencing_run` dir is "full lane"
-		* test against metadata file `Och_SSLibrariesforCapture_metadata.xlsx`
+		* test against metadata file `data/Och_SSLibrariesforCapture_metadata.xlsx`
 			* libs (rows) differentiated by column CJ `Pool for full seq?` = "Yes"
 			* compare first name col in decode file to column CM `Full seq Name`
 			* compare second name col in decode file to column CN `Full seq decode`
@@ -176,11 +176,10 @@ cross contamination may occur due to errors in creating the sequencing decode fi
 
 cross contamination may occur due to errors in creating the symlinks in the generode dir which associate multiple pairs of fastq files with the same seq id.
 
-* The symlink files are in `generode_symlinks/`
-	* these files contain the results of `ls -lh GenErode_Och_20k/data/raw_reads_symlinks/(historical|modern)/*gz > generode_hist_symlinks.txt` from the repo on the wahab hpc, not the present repo.
+* The symlink files are in `data/pire_ostorhinchus_chrysopomus_lcwgs/GenErode_Och_20k/data/raw_reads_symlinks/historical/generode_hist_symlinks.txt` and `data/pire_ostorhinchus_chrysopomus_lcwgs/GenErode_Och_20k/data/raw_reads_symlinks/modern/generode_cont_symlinks.txt`
+	* these files contain the results of `ls -lhbGenErode_Och_20k/data/raw_reads_symlinks/(historical|modern)/*gz` from the `pire_ostorhinchus_chrysopomus_lcwgs` repo on the wahab hpc, not the present repo.
 * We expect the individual ID in the link to match that in the original file name.
 	* in the link name, the `_` and `-` have been removed
 		* e.g. OchATum036
 	* in the orginal file name, they have not been removed
 		* e.g. Och-ATum_036
-
