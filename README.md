@@ -31,4 +31,47 @@ Determine whether cross contamination can explain any of the admixed individuals
 - `scripts/`: analysis scripts (when added).
 - `output/`: analysis outputs (when generated).
 
+```
+.
+├── AGENTS.md
+├── OBJECTIVES.md
+├── README.md
+├── TODO.md
+├── data
+│   ├── och_admixture_values.csv
+│   ├── och_extractions_only.xlsx
+│   ├── Och_SSLibrariesforCapture_metadata.xlsx
+│   ├── seq_reports
+│   │   ├── PIRE-Adu-Och-Sde-Sin_December2024_SeqSummary.xlsx
+│   │   ├── PIRE-Cha-Och-TestLane_SeqSummary.xlsx
+│   │   ├── PIRE_Och-TestLane2_SeqSummary.xlsx
+│   │   └── README.md
+│   └── pire_ostorhinchus_chrysopomus_lcwgs
+│       ├── 1st_sequencing_run
+│       │   └── fq_raw
+│       │       ├── decode_sedlist.txt
+│       │       └── README.md
+│       ├── 2nd_sequencing_run
+│       │   └── fq_raw
+│       │       ├── decode_sedlist.txt
+│       │       └── README.md
+│       ├── 3rd_sequencing_run
+│       │   └── fq_raw
+│       │       ├── decode_sedlist.txt
+│       │       └── README.md
+│       ├── 4th_sequencing_run
+│       │   └── fq_raw
+│       │       ├── decode_sedlist.txt
+│       │       └── README.md
+│       └── GenErode_Och_20k
+│           └── data
+│               └── raw_reads_symlinks
+│                   ├── historical
+│                   │   └── generode_hist_symlinks.txt
+│                   └── modern
+│                       └── generode_cont_symlinks.txt
+├── output
+└── scripts
+```
+
 Note: `OBJECTIVES.md` uses the Wahab repo-relative paths; in this repo those assets live under `data/pire_ostorhinchus_chrysopomus_lcwgs/` and `data/`.

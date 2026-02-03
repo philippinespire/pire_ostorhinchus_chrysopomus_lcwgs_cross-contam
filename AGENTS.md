@@ -2,6 +2,7 @@
 
 ## Scope
 - This repository contains analysis inputs and scripts for the Och (ostorhinchus_chrysopomus) project.
+- Full objective details (authored by cbird) are documented in `OBJECTIVES.md`.
 
 ## Data Assumptions
 - In `data/och_admixture_values.csv`, each unique sample ID represents a single individual.
