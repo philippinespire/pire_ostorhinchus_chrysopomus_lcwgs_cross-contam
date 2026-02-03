@@ -20,6 +20,7 @@
 - Keep the current objective plan in `TODO.md`.
 - When starting work on a plan item, add it to `INPROGRESS.md` and keep that file updated with active work only.
 - When a todo is finished, append a dated entry to `COMPLETEDWORK.md` in reverse chronological order (newest first).
+- Record decision logic and work rationale in `DECISIONS_WORK/TODO-XX.md` using reverse-chronological, timestamped entries.
 
 ## R Workflow Preferences
 - Prefer R for analysis work.

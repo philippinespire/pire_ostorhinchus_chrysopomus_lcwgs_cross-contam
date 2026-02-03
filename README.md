@@ -23,6 +23,7 @@ Determine whether cross contamination can explain any of the admixed individuals
 - `TODO.md` contains the current plan.
 - `INPROGRESS.md` contains only active work items.
 - `COMPLETEDWORK.md` is append-only and logs finished work in reverse chronological order.
+- `DECISIONS_WORK/` stores reverse-chronological, timestamped decision logs per TODO item (e.g., `DECISIONS_WORK/TODO-01.md`).
 
 ## Repo Layout
 - `data/`: analysis inputs and external metadata.
@@ -73,4 +74,3 @@ Determine whether cross contamination can explain any of the admixed individuals
 ├── output
 └── scripts
 ```
-
