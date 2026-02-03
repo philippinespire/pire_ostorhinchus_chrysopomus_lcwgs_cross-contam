@@ -8,13 +8,13 @@ Notes:
 
 ## 1. Define admixed criteria from `data/och_admixture_values.csv` and produce a reproducible list of admixed and pure individuals.
 - 2026-02-03 17:12 CST — Generated continuous admixture summaries from `data/och_admixture_values.csv` using cluster probabilities (no hard thresholds). Outputs: `output/admixture_long.csv`, `output/admixture_metrics.csv`, `output/admixture_summary.csv`, `output/admixture_qc.csv`. Script: `scripts/01_admixture_summary.R`.
-- Decision log: `DECISIONS_WORK/TODO-01.md`
+- [Decision log](DECISIONS_WORK/TODO-01.md)
 
 ---
 
 ## 2. Build a unified key table that links admixture results to `data/och_extractions_only.xlsx` and `data/Och_SSLibrariesforCapture_metadata.xlsx`, preserving one row per individual and flagging known conflicts.
 - No entries yet.
-- Plan: `PLANS/TODO-02.md`
+- [Plan](PLANS/TODO-02.md)
 
 ---
 
