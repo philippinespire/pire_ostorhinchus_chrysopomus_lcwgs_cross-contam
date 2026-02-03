@@ -2,7 +2,6 @@
 
 ## Scope
 - This repository contains analysis inputs and scripts for the Och (ostorhinchus_chrysopomus) project.
-- Default working directory: `/mnt/c/Users/cbird/OneDrive - Texas A&M University-Corpus Christi/!students/Ty_Burris_Thesis/Data Analysis/Och`.
 
 ## Data Assumptions
 - In `och_admixture_values.csv`, each unique sample ID represents a single individual.
