@@ -74,4 +74,3 @@ Determine whether cross contamination can explain any of the admixed individuals
 └── scripts
 ```
 
-Note: `OBJECTIVES.md` uses the Wahab repo-relative paths; in this repo those assets live under `data/pire_ostorhinchus_chrysopomus_lcwgs/` and `data/`.
