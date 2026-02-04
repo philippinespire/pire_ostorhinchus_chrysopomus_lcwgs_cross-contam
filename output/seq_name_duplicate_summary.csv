@@ -19,8 +19,8 @@ pool,test_lane_2,Och-A-2,novogene_seq_id,24,0,0,0
 pool,test_lane_2,Och-A-2,sequence_id,24,0,0,0
 pool,test_lane_2,Och-C-2,novogene_seq_id,64,0,0,0
 pool,test_lane_2,Och-C-2,sequence_id,64,0,0,0
-run,full_lane,NA,full_seq_decode,357,111,0,0
-run,full_lane,NA,full_seq_name,357,111,0,0
+run,full_lane,NA,full_seq_decode,246,0,0,0
+run,full_lane,NA,full_seq_name,246,0,0,0
 run,test_lane,NA,novogene_seq_id,197,0,0,0
 run,test_lane,NA,sequence_id,197,0,0,0
 run,test_lane_2,NA,novogene_seq_id,88,0,0,0

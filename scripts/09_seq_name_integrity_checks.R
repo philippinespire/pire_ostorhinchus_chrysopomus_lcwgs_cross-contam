@@ -68,7 +68,7 @@ seq_long <-
         str_detect(pool_round_lower, "test lane 2") ~ "test_lane_2",
       seq_field %in% c("novogene_seq_id", "sequence_id") &
         str_detect(pool_round_lower, "test lane") ~ "test_lane",
-      seq_field %in% c("full_seq_name", "full_seq_decode") ~ "full_lane",
+      seq_field %in% c("full_seq_name", "full_seq_decode") & in_full_lane_flag ~ "full_lane",
       TRUE ~ NA_character_
     ),
     pool_id = case_when(
