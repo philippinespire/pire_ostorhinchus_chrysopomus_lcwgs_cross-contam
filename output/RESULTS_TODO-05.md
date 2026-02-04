@@ -6,10 +6,10 @@ Outputs from extraction plate adjacency tests.
 - [extraction_plate_permutation_distributions.csv](TODO-05/extraction_plate_permutation_distributions.csv): full permutation distributions per plate.
 - [extraction_plate_diagnostics.csv](TODO-05/extraction_plate_diagnostics.csv): counts of missing or duplicated plate coordinates.
 - [extraction_plate_counts.csv](TODO-05/extraction_plate_counts.csv): well counts and missingness per plate and elution.
-- `extraction_plate_admixedness_heatmap.png`: plate-layout heatmaps of continuous admixedness, faceted by plate.
-- `extraction_plate_k4_heatmap.png`: plate-layout heatmaps of K4 affiliation, faceted by plate.
-- `extraction_plate_cluster_heatmap.png`: plate-layout heatmaps of dominant clusters, faceted by plate.
-- `extraction_plate_admixedness_boxplot.png`: per-plate admixedness distribution summary.
+- [extraction_plate_admixedness_heatmap.png](TODO-05/extraction_plate_admixedness_heatmap.png): plate-layout heatmaps of continuous admixedness, faceted by plate.
+- [extraction_plate_k4_heatmap.png](TODO-05/extraction_plate_k4_heatmap.png): plate-layout heatmaps of K4 affiliation, faceted by plate.
+- [extraction_plate_cluster_heatmap.png](TODO-05/extraction_plate_cluster_heatmap.png): plate-layout heatmaps of dominant clusters, faceted by plate.
+- [extraction_plate_admixedness_boxplot.png](TODO-05/extraction_plate_admixedness_boxplot.png): per-plate admixedness distribution summary.
 
 Interpretation:
 - Use [extraction_plate_permutation_summary.csv](TODO-05/extraction_plate_permutation_summary.csv) to identify plates with low empirical p-values, indicating non-random adjacency patterns in `admixedness` or dominant clusters.

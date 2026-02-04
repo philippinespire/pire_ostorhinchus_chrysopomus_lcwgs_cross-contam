@@ -1,6 +1,6 @@
 # Output Files
 
-This directory contains generated analysis outputs. Detailed results are split by TODO for easier browsing.
+This directory contains generated analysis outputs. Detailed results are split by TODO for easier browsing, and files live in `TODO-XX/` subdirectories.
 
 - [TODO 1 results](RESULTS_TODO-01.md): summarize admixture proportions and continuous metrics (K2–K4).
 - [TODO 2 results](RESULTS_TODO-02.md): build the unified admixture–extraction–library–decode key table.
