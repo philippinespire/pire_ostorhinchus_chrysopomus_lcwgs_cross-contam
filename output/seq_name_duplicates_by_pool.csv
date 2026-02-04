@@ -1,1 +1,1 @@
-run_type,pool_round,pool_id,seq_field,seq_value,n_libraries,library_ids,individual_ids,extraction_ids,sequence_ids,novogene_seq_ids,full_seq_names,full_seq_decodes
+run_type,pool_id,seq_field,seq_value,n_libraries,library_ids,individual_ids,extraction_ids,sequence_ids,novogene_seq_ids,full_seq_names,full_seq_decodes
