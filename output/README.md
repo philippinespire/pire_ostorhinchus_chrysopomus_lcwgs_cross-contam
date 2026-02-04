@@ -2,19 +2,23 @@
 
 This directory contains generated analysis outputs. Sections are organized by TODO.
 
-**TODO 1**
+## TODO 1
 Outputs from admixture summarization using continuous metrics.
 - [admixture_long.csv](admixture_long.csv): long-format admixture table with one row per sample and cluster.
 - [admixture_metrics.csv](admixture_metrics.csv): per-sample metrics including `max_prop`, `admixedness`, entropy, and effective clusters.
 - [admixture_summary.csv](admixture_summary.csv): wide-format K2–K4 probabilities joined to summary metrics (K1 merged into K2).
 - [admixture_qc.csv](admixture_qc.csv): QC checks for cluster counts and probability sums.
 
-**TODO 2**
+---
+
+## TODO 2
 Outputs from linking admixture, extraction, library, and decode metadata.
 - [admixture_extraction_library_key.csv](admixture_extraction_library_key.csv): unified key table with joined identifiers and flags.
 - [admixture_extraction_library_diagnostics.csv](admixture_extraction_library_diagnostics.csv): diagnostics for unmatched joins and decode mismatches.
 
-**TODO 3**
+---
+
+## TODO 3
 Outputs from tissue subsampling order tests.
 - [tissue_subsampling_adjacency_metrics.csv](tissue_subsampling_adjacency_metrics.csv): per-group adjacency and periodic metrics.
 - [tissue_subsampling_permutation_summary.csv](tissue_subsampling_permutation_summary.csv): permutation-based summaries and p-values.
@@ -34,7 +38,9 @@ Plots:
 ![](tissue_subsampling_admixture_heatmap.png)
 ![](tissue_subsampling_k4_heatmap.png)
 
-**TODO 4**
+---
+
+## TODO 4
 Outputs from extraction order tests.
 - [extraction_order_adjacency_metrics.csv](extraction_order_adjacency_metrics.csv): per-group adjacency and periodic metrics.
 - [extraction_order_permutation_summary.csv](extraction_order_permutation_summary.csv): permutation-based summaries and p-values.
@@ -54,7 +60,9 @@ Flagged groups (min p-value across metrics <= 0.05):
 | 2022-09-27\|John_Schaefer | 2022-09-27 | John_Schaefer | 21 | 21 | 0.030 | adj_abs_diff_mean_p_value |
 | 2022-11-09\|John_Schaefer | 2022-11-09 | John_Schaefer | 41 | 41 | 0.049 | adj_abs_diff_mean_p_value |
 
-**TODO 5**
+---
+
+## TODO 5
 Outputs from extraction plate adjacency tests.
 - [extraction_plate_adjacency_metrics.csv](extraction_plate_adjacency_metrics.csv): per-plate adjacency metrics across 4-neighbor wells.
 - [extraction_plate_permutation_summary.csv](extraction_plate_permutation_summary.csv): permutation-based summaries and p-values.
@@ -89,7 +97,9 @@ Plots:
 ![](extraction_plate_cluster_heatmap.png)
 ![](extraction_plate_admixedness_boxplot.png)
 
-**TODO 6**
+---
+
+## TODO 6
 Outputs from library plate adjacency tests.
 - [library_plate_adjacency_metrics.csv](library_plate_adjacency_metrics.csv): per-plate adjacency metrics across 4-neighbor wells.
 - [library_plate_permutation_summary.csv](library_plate_permutation_summary.csv): permutation-based summaries and p-values.
@@ -117,7 +127,9 @@ Plots:
 ![](library_plate_cluster_heatmap.png)
 ![](library_plate_admixedness_boxplot.png)
 
-**TODO 7**
+---
+
+## TODO 7
 Outputs from dilution plate adjacency tests.
 - [dilution_plate_adjacency_metrics.csv](dilution_plate_adjacency_metrics.csv): per-plate adjacency metrics across 4-neighbor wells.
 - [dilution_plate_permutation_summary.csv](dilution_plate_permutation_summary.csv): permutation-based summaries and p-values.
@@ -145,7 +157,9 @@ Plots:
 ![](dilution_plate_cluster_heatmap.png)
 ![](dilution_plate_admixedness_boxplot.png)
 
-**TODO 8**
+---
+
+## TODO 8
 Outputs from index integrity checks within sequencing pools and runs.
 - [index_pair_duplicates_by_pool.csv](index_pair_duplicates_by_pool.csv): detailed duplicate i5+i7 index pairs within each pool.
 - [index_pair_duplicate_summary.csv](index_pair_duplicate_summary.csv): summary of duplicates and missing index values by pool and by run.
