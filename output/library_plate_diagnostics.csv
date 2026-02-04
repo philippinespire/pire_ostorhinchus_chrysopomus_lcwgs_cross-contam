@@ -1,0 +1,3 @@
+diagnostic,count,example_ids,example_plate_keys
+missing_plate_coordinates,0,,NA
+duplicate_plate_wells,0,NA,

@@ -31,6 +31,9 @@ Each hypothesis is evaluated using empirical p-values derived from within-group 
 **05_extraction_plate_adjacency.R**
 Tests whether extraction plate layout shows non-random spatial adjacency patterns in `admixedness` and dominant genetic cluster using 4-neighbor wells within each plate and permutation baselines. Also generates plate-layout heatmaps (admixedness, K4 affiliation, dominant cluster) and per-plate admixedness summaries.
 
+**06_library_plate_adjacency.R**
+Tests whether library plate layout shows non-random spatial adjacency patterns in `admixedness` and dominant genetic cluster using 4-neighbor wells within each plate and permutation baselines. Also generates plate-layout heatmaps (admixedness, K4 affiliation, dominant cluster) and per-plate admixedness summaries.
+
 Statistical hypotheses:
 - Adjacency differences: observed neighbor-to-neighbor `admixedness` differences are consistent with random arrangement within each plate.
 - Cluster mismatch: observed dominant-cluster mismatch rates between neighboring wells are consistent with random arrangement within each plate.

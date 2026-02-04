@@ -1,0 +1,7 @@
+adj_abs_diff_mean,adj_abs_diff_median,cluster_mismatch_rate,plate_key,plateid,n_wells,n_missing_admixedness,n_missing_dominant_cluster,n_missing_k4,n_neighbor_pairs
+0.02023759117647059,0.00411349999999999,0.11764705882352941,Och-ACan_LCWGS-libraries,Och-ACan_LCWGS-libraries,24,0,0,0,68
+0.08307731629629629,0.03332600000000008,0.2074074074074074,Och-A_RedoLibraries,Och-A_RedoLibraries,77,0,0,0,270
+0.015487062500000006,7.999999998009599e-7,0,Och-CBur_LCWGS-libraries,Och-CBur_LCWGS-libraries,64,0,0,0,224
+0.0801878044117647,0.038278550000000015,0.19852941176470587,PIRE-A_LibrariesforCapture_Jan2023-2,PIRE-A_LibrariesforCapture_Jan2023-2,77,0,0,0,272
+0.04805574444444445,0.041827400000000015,0,PIRE-C_Libraries-Apr2023-1,PIRE-C_Libraries-Apr2023-1,64,1,1,1,224
+0.05381508095238095,0.04580655000000006,0,PIRE-C_LibrariesforCapture_Jan2023-2,PIRE-C_LibrariesforCapture_Jan2023-2,51,1,1,1,174

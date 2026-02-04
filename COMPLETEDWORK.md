@@ -42,7 +42,9 @@ Notes:
 ---
 
 ## 6. Test library plate adjacency effects using `Library Plate`, `Library plate row`, `Library plate col` from `data/Och_SSLibrariesforCapture_metadata.xlsx`.
-- No entries yet.
+- 2026-02-03 21:50 CST — Tested library plate adjacency patterns using 4-neighbor wells with permutation baselines. Outputs: `output/library_plate_adjacency_metrics.csv`, `output/library_plate_permutation_summary.csv`, `output/library_plate_permutation_distributions.csv`, `output/library_plate_diagnostics.csv`, `output/library_plate_counts.csv`, `output/library_plate_admixedness_heatmap.png`, `output/library_plate_k4_heatmap.png`, `output/library_plate_cluster_heatmap.png`, `output/library_plate_admixedness_boxplot.png`. Script: `scripts/06_library_plate_adjacency.R`.
+- [Plan](PLANS/TODO-06.md)
+- [Decision log](DECISIONS_WORK/TODO-06.md)
 
 ---
 
