@@ -7,6 +7,7 @@
 ## Data Assumptions
 - In `data/och_admixture_values.csv`, each unique sample ID represents a single individual.
 - The FASTQ files were merged by a student; merge success is uncertain, but the admixture table should still be treated as individual-level data.
+- Treat K1 and K2 as the same genetic group; downstream outputs should use K2 (K1 + K2), K3, and K4 only.
 
 ## Decode Conflicts
 - `OcA0102311B` sequences combine two different individuals and cannot be disentangled.
@@ -18,6 +19,8 @@
 - Follow the data organization principles in:
   `https://github.com/tamucc-comp-bio/how_to/blob/main/howto_organize_data.md`
 - Use descriptive file and column names that are easy to interpret.
+- Treat `data/` files (especially `*.xlsx`) as read-only unless explicitly requested; do not stage or commit changes to them.
+- Avoid rerunning analysis scripts unless requested, since permutation outputs and plots are regenerated.
 
 ## Planning And Tracking
 - Keep the current objective plan in `TODO.md`.
@@ -33,3 +36,12 @@
 - Never save a data container into itself.
 - Document code and break scripts into collapsable sections using `#### SECTION NAME ####` notation.
 - When a pipe starts after assignment, place a line break right after `<- `.
+- Keep tissue sampling plots in `scripts/03_tissue_subsampling_tests.R`.
+- Keep plate adjacency plots in their matching scripts:
+  `scripts/05_extraction_plate_adjacency.R`,
+  `scripts/06_library_plate_adjacency.R`,
+  `scripts/07_dilution_plate_adjacency.R`.
+- Use `facet_wrap` for heatmaps (do not use `space = "free_y"`).
+- For K4 plate heatmaps, use an orange-to-blue gradient with Set2 colors:
+  low `#FC8D62` and high `#8DA0CB`.
+- When embedding plots in `output/README.md`, use `![](relative_path)` syntax.
