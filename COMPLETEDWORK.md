@@ -28,12 +28,16 @@ Notes:
 ---
 
 ## 4. Test extraction order effects by sorting by `date_extracting`, `tube_stuffer`, `individual_id` and evaluating adjacency or periodic contamination patterns with permutation baselines.
-- No entries yet.
+- 2026-02-03 18:01 CST — Tested extraction order effects with adjacency and periodic metrics plus permutation baselines. Outputs: `output/extraction_order_adjacency_metrics.csv`, `output/extraction_order_permutation_summary.csv`, `output/extraction_order_permutation_distributions.csv`. Script: `scripts/04_extraction_order_tests.R`.
+- [Plan](PLANS/TODO-04.md)
+- [Decision log](DECISIONS_WORK/TODO-04.md)
 
 ---
 
 ## 5. Test extraction plate adjacency effects using `elution[1234]_plateid`, `elution[1234]_row`, `elution[1234]_column` to see whether admixed wells cluster near discordant pure wells.
-- No entries yet.
+- 2026-02-04 10:30 CST — Tested extraction plate adjacency patterns using 4-neighbor wells with permutation baselines. Outputs: `output/extraction_plate_adjacency_metrics.csv`, `output/extraction_plate_permutation_summary.csv`, `output/extraction_plate_permutation_distributions.csv`, `output/extraction_plate_diagnostics.csv`, `output/extraction_plate_counts.csv`. Script: `scripts/05_extraction_plate_adjacency.R`.
+- [Plan](PLANS/TODO-05.md)
+- [Decision log](DECISIONS_WORK/TODO-05.md)
 
 ---
 

@@ -1,0 +1,8 @@
+plate_key,plateid,elution,n_wells,n_missing_admixedness
+Mix-A_005_E1|1,Mix-A_005_E1,1,24,0
+Mix-C_005_E1|1,Mix-C_005_E1,1,8,0
+Mix-C_008_E1|1,Mix-C_008_E1,1,43,1
+Mix-C_010_E1|1,Mix-C_010_E1,1,22,0
+Och-A_001_E1|1,Och-A_001_E1,1,77,0
+Och-C_001_E1|1,Och-C_001_E1,1,96,32
+Och-C_002_E1|1,Och-C_002_E1,1,74,33

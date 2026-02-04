@@ -1,0 +1,3 @@
+diagnostic,count,example_ids,example_plate_keys
+missing_plate_coordinates,1056,Och-CCat_097-Ex1;Och-CCat_098-Ex1;Och-CCat_099-Ex1;Och-CCat_100-Ex1;Och-CCat_101-Ex1;Och-CCat_102-Ex1;Och-ACan_001-Ex1;Och-ACan_002-Ex1;Och-ACan_003-Ex1;Och-ACan_004-Ex1,NA
+duplicate_plate_wells,0,NA,
