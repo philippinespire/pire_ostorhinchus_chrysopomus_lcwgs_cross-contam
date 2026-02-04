@@ -13,6 +13,8 @@ Determine whether cross contamination can explain any of the admixed individuals
 
 ## Key Inputs
 - `data/och_admixture_values.csv`: individual-level admixture summaries.
+	- this is based on K=4, but there are really only 2 or 3 groups
+	- K=4 is O. sealei, K = 1-3 are O. chrysopomus
 - `data/och_extractions_only.xlsx`: extraction metadata and tissue subsampling notes.
 - `data/Och_SSLibrariesforCapture_metadata.xlsx`: library construction and sequencing metadata.
 - `data/individuals_sheet_och.xlsx`: individual-level reference sheet for identifier reconciliation.
