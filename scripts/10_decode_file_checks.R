@@ -37,7 +37,11 @@ parse_decode <- function(path, run_label) {
     decode_first = matches[, 2],
     decode_second = matches[, 3]
   ) %>%
-    filter(!is.na(decode_first), !is.na(decode_second))
+    filter(
+      !is.na(decode_first),
+      !is.na(decode_second),
+      !(decode_first == "Sequence" & decode_second == "Extraction_ID")
+    )
 }
 
 decode_entries <- 

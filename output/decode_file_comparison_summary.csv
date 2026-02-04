@@ -1,4 +1,4 @@
 run_label,file_path,n_decode_pairs,n_expected_pairs,n_unmatched_decode,n_missing_expected
-full_lane,data/pire_ostorhinchus_chrysopomus_lcwgs/4th_sequencing_run/fq_raw/decode_sedlist.txt,247,246,3,2
-test_lane,data/pire_ostorhinchus_chrysopomus_lcwgs/2nd_sequencing_run/fq_raw/decode_sedlist.txt,198,197,3,2
-test_lane_2,data/pire_ostorhinchus_chrysopomus_lcwgs/3rd_sequencing_run/fq_raw/decode_sedlist.txt,89,88,1,0
+full_lane,data/pire_ostorhinchus_chrysopomus_lcwgs/4th_sequencing_run/fq_raw/decode_sedlist.txt,246,246,2,2
+test_lane,data/pire_ostorhinchus_chrysopomus_lcwgs/2nd_sequencing_run/fq_raw/decode_sedlist.txt,197,197,2,2
+test_lane_2,data/pire_ostorhinchus_chrysopomus_lcwgs/3rd_sequencing_run/fq_raw/decode_sedlist.txt,88,88,0,0

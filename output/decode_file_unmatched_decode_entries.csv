@@ -1,8 +1,5 @@
 run_label,file_path,decode_first,decode_second,pair_key
-test_lane,data/pire_ostorhinchus_chrysopomus_lcwgs/2nd_sequencing_run/fq_raw/decode_sedlist.txt,Sequence,Extraction_ID,Sequence|Extraction_ID
 test_lane,data/pire_ostorhinchus_chrysopomus_lcwgs/2nd_sequencing_run/fq_raw/decode_sedlist.txt,OcA0102311B,Och-ACat_023-Ex1-11B-lcwgs-2-1,OcA0102311B|Och-ACat_023-Ex1-11B-lcwgs-2-1
 test_lane,data/pire_ostorhinchus_chrysopomus_lcwgs/2nd_sequencing_run/fq_raw/decode_sedlist.txt,OcA0102311B,Och-ATum_023-Ex1-11B-lcwgs-1-1,OcA0102311B|Och-ATum_023-Ex1-11B-lcwgs-1-1
-test_lane_2,data/pire_ostorhinchus_chrysopomus_lcwgs/3rd_sequencing_run/fq_raw/decode_sedlist.txt,Sequence,Extraction_ID,Sequence|Extraction_ID
-full_lane,data/pire_ostorhinchus_chrysopomus_lcwgs/4th_sequencing_run/fq_raw/decode_sedlist.txt,Sequence,Extraction_ID,Sequence|Extraction_ID
 full_lane,data/pire_ostorhinchus_chrysopomus_lcwgs/4th_sequencing_run/fq_raw/decode_sedlist.txt,OchACat039,Och-ACat_039-Ex1-3D-lcwgs-2-2,OchACat039|Och-ACat_039-Ex1-3D-lcwgs-2-2
 full_lane,data/pire_ostorhinchus_chrysopomus_lcwgs/4th_sequencing_run/fq_raw/decode_sedlist.txt,OchACat039,Och-ACat_039-Ex1-8A-lcwgs-1-2,OchACat039|Och-ACat_039-Ex1-8A-lcwgs-1-2
