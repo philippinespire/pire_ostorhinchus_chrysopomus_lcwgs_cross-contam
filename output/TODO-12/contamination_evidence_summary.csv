@@ -1,0 +1,14 @@
+evidence_source,n_individuals
+any_evidence,278
+candidate_individuals,59
+total_individuals,278
+tissue_subsampling,131
+extraction_order,90
+extraction_plate,172
+library_plate,215
+dilution_plate,134
+index_duplicate,0
+seq_name_duplicate,0
+decode_mismatch,3
+generode_mismatch,0
+lab_notes,50

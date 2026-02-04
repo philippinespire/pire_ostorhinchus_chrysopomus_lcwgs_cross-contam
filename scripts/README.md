@@ -75,3 +75,8 @@ Statistical hypotheses:
 - Cluster mismatch: observed dominant-cluster mismatch rates between neighboring wells are consistent with random arrangement within each plate.
 
 Each hypothesis is evaluated using empirical p-values derived from within-plate permutations.
+
+---
+## TODO 12
+Script: `12_contamination_evidence_summary.R`
+Synthesizes evidence across all contamination sources (order effects, plate adjacency, index/seq duplicates, decode mismatches, symlink checks, and lab notes) into per-individual summaries and a prioritized candidate list.

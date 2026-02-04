@@ -85,3 +85,6 @@ Notes:
 
 ## 12. Summarize evidence across all sources and identify which admixed individuals are plausibly explained by cross contamination.
 - No entries yet.
+- 2026-02-04 00:17 CST — Synthesized contamination evidence across all sources and generated per-individual summaries plus a prioritized candidate list. Outputs: `output/TODO-12/contamination_evidence_by_individual.csv`, `output/TODO-12/contamination_evidence_candidates.csv`, `output/TODO-12/contamination_evidence_summary.csv`. Script: `scripts/12_contamination_evidence_summary.R`.
+- [Plan](PLANS/TODO-12.md)
+- [Decision log](DECISIONS_WORK/TODO-12.md)

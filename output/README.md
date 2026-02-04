@@ -13,3 +13,4 @@ This directory contains generated analysis outputs. Detailed results are split b
 - [TODO 9 results](TODO-09/README.md): check duplicate sequencing IDs/names within pools/runs.
 - [TODO 10 results](TODO-10/README.md): compare decode sedlist files to metadata expectations.
 - [TODO 11 results](TODO-11/README.md): verify GenErode symlink naming consistency.
+- [TODO 12 results](TODO-12/README.md): synthesize contamination evidence and prioritize admixed individuals.
