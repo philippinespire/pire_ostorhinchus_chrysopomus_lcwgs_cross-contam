@@ -42,8 +42,8 @@ symlink_entries <-
   mutate(
     link_base = basename(link_path),
     target_base = basename(target_path),
-    link_id_raw = str_split_fixed(link_base, "_Ex", 2)[, 1],
-    target_id_raw = str_split_fixed(target_base, "-Ex", 2)[, 1],
+    link_id_raw = str_split_fixed(link_base, "_Ex|-Ex", 2)[, 1],
+    target_id_raw = str_split_fixed(target_base, "_Ex|-Ex", 2)[, 1],
     link_id_norm = str_replace_all(link_id_raw, "[-_]", ""),
     target_id_norm = str_replace_all(target_id_raw, "[-_]", ""),
     id_match = link_id_norm == target_id_norm
