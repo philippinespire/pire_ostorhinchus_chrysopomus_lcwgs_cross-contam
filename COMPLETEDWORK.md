@@ -49,7 +49,9 @@ Notes:
 ---
 
 ## 7. Test dilution plate adjacency effects using `Dilution Plate`, `Dilution Plate Row`, `Dilution Plate Col`.
-- No entries yet.
+- 2026-02-03 21:52 CST — Tested dilution plate adjacency patterns using 4-neighbor wells with permutation baselines. Outputs: `output/dilution_plate_adjacency_metrics.csv`, `output/dilution_plate_permutation_summary.csv`, `output/dilution_plate_permutation_distributions.csv`, `output/dilution_plate_diagnostics.csv`, `output/dilution_plate_counts.csv`, `output/dilution_plate_admixedness_heatmap.png`, `output/dilution_plate_k4_heatmap.png`, `output/dilution_plate_cluster_heatmap.png`, `output/dilution_plate_admixedness_boxplot.png`. Script: `scripts/07_dilution_plate_adjacency.R`.
+- [Plan](PLANS/TODO-07.md)
+- [Decision log](DECISIONS_WORK/TODO-07.md)
 
 ---
 

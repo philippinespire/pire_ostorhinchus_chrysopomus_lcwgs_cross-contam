@@ -1,0 +1,4 @@
+adj_abs_diff_mean,adj_abs_diff_median,cluster_mismatch_rate,plate_key,plateid,n_wells,n_missing_admixedness,n_missing_dominant_cluster,n_missing_k4,n_neighbor_pairs
+0.05950296860465116,0.05472545000000002,0,Och-C_DilutionPlate,Och-C_DilutionPlate,96,0,0,0,344
+0.07779211666666666,0.04428050000000001,0.3627450980392157,Och-Mixed_Dilution Plate,Och-Mixed_Dilution Plate,59,0,0,0,204
+0.008503872868217056,0.001135100000000059,0.10077519379844961,Och-TL2-DilutionPlate,Och-TL2-DilutionPlate,75,0,0,0,258
