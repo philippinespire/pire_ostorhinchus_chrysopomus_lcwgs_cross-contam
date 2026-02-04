@@ -12,6 +12,7 @@ Outputs from extraction plate adjacency tests.
 - [extraction_plate_admixedness_boxplot.png](extraction_plate_admixedness_boxplot.png): per-plate admixedness distribution summary.
 
 Interpretation:
+- Admixedness is defined as `1 - max_prop` across K2–K4 per individual (K1 merged into K2).
 - Use [extraction_plate_permutation_summary.csv](extraction_plate_permutation_summary.csv) to identify plates with low empirical p-values, indicating non-random adjacency patterns in `admixedness` or dominant clusters.
 - `adj_abs_diff_mean` and `adj_abs_diff_median` summarize how sharply `admixedness` changes between neighboring wells (up/down/left/right).
 - `cluster_mismatch_rate` captures how often adjacent wells have different dominant clusters; elevated values may indicate spatial mixing on the plate.
