@@ -10,7 +10,7 @@ admixture_raw <- readr::read_csv(
 )
 
 #### STANDARDIZE IDENTIFIERS ####
-admixture_long <- 
+admixture_long_raw <- 
   admixture_raw %>%
   mutate(
     sample = Sample,
@@ -25,11 +25,15 @@ admixture_long <-
     prop = Prop
   )
 
-cluster_order <- 
-  admixture_long %>%
-  distinct(cluster) %>%
-  arrange(cluster) %>%
-  pull(cluster)
+#### MERGE K1 INTO K2 ####
+admixture_long <- 
+  admixture_long_raw %>%
+  mutate(cluster = if_else(cluster == "K1", "K2", cluster)) %>%
+  group_by(sample_id, sample, era, location, cluster) %>%
+  summarise(prop = sum(prop, na.rm = TRUE), .groups = "drop")
+
+cluster_order <- c("K2", "K3", "K4")
+cluster_order <- cluster_order[cluster_order %in% unique(admixture_long$cluster)]
 
 #### BUILD WIDE TABLE ####
 admixture_wide <- 

@@ -1,5 +1,14 @@
 # TODO-03 Decisions
 
+## 2026-02-03 21:26 CST
+Decision: Update the admixture heatmap to show K2–K4 only after merging K1 into K2.
+Rationale: Keeps tissue-sampling visualizations consistent with the merged cluster definitions.
+Options considered: Retain K1–K4 labels; switch to K2–K4 only; show K2–K4 plus a note.
+Implications: `output/tissue_subsampling_admixture_heatmap.png` now displays K2–K4 proportions only.
+Notes: Heatmap still uses continuous cluster proportions without thresholds.
+Links: `PLANS/TODO-03.md`.
+---
+
 ## 2026-02-03 21:04 CST
 Decision: Add a K4-only heatmap (red scale) by individual, faceted by location and era.
 Rationale: Isolates K4 signal to evaluate whether that cluster shows spatial/era structure or scattered contamination signatures.

@@ -32,7 +32,7 @@ admixture_metrics <-
     admixedness,
     max_prop,
     dominant_cluster,
-    K1,K2,K3,K4,
+    K2, K3, K4,
     conflict_flag
   )
 
@@ -254,16 +254,16 @@ readr::write_csv(
 #### VISUALIZATIONS ####
 heatmap_data <- 
   admixture_key %>%
-  select(individual_key, location, era, K1, K2, K3, K4) %>%
+  select(individual_key, location, era, K2, K3, K4) %>%
   arrange(location, era, individual_key) %>%
   mutate(individual_key = as.character(individual_key)) %>%
   tidyr::pivot_longer(
-    cols = c(K1, K2, K3, K4),
+    cols = c(K2, K3, K4),
     names_to = "cluster",
     values_to = "prop"
   ) %>%
   mutate(
-    cluster = factor(cluster, levels = c("K1", "K2", "K3", "K4")),
+    cluster = factor(cluster, levels = c("K2", "K3", "K4")),
     individual_key = factor(individual_key, levels = unique(individual_key))
   )
 
@@ -274,7 +274,7 @@ heatmap_plot <-
   facet_wrap(era ~ location, scales = "free_y") +
   scale_fill_gradient(low = "white", high = "#0b5fa5", na.value = "grey90") +
   labs(
-    title = "Admixture Proportions by Individual",
+    title = "Admixture Proportions by Individual (K2–K4)",
     subtitle = "Faceted by era and location to contrast biological structure vs contamination",
     x = "Genetic cluster",
     y = "Individual key",

@@ -7,7 +7,7 @@ Summarizes admixture proportions into reusable, continuous metrics. Produces lon
 Builds a unified key table linking admixture summaries to extraction metadata, library metadata, and decode mappings. Generates diagnostics for unmatched or mismatched joins.
 
 **03_tissue_subsampling_tests.R**
-Tests whether tissue subsampling order shows non-random admixture patterns within each (`date_subsampling_date`, `subsampler`) group using continuous `admixedness` metrics and permutation baselines. Also generates K1–K4 and K4-only heatmaps by individual faceted by location and era.
+Tests whether tissue subsampling order shows non-random admixture patterns within each (`date_subsampling_date`, `subsampler`) group using continuous `admixedness` metrics and permutation baselines. Also generates K2–K4 and K4-only heatmaps by individual faceted by location and era.
 
 Statistical hypotheses:
 - Adjacency shifts: observed neighbor-to-neighbor changes in `admixedness` are consistent with random ordering within a subsampling group.

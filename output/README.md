@@ -6,7 +6,7 @@ This directory contains generated analysis outputs. Sections are organized by TO
 Outputs from admixture summarization using continuous metrics.
 - `admixture_long.csv`: long-format admixture table with one row per sample and cluster.
 - `admixture_metrics.csv`: per-sample metrics including `max_prop`, `admixedness`, entropy, and effective clusters.
-- `admixture_summary.csv`: wide-format K1–K4 probabilities joined to summary metrics.
+- `admixture_summary.csv`: wide-format K2–K4 probabilities joined to summary metrics (K1 merged into K2).
 - `admixture_qc.csv`: QC checks for cluster counts and probability sums.
 
 **TODO 2**
@@ -19,7 +19,7 @@ Outputs from tissue subsampling order tests.
 - `tissue_subsampling_adjacency_metrics.csv`: per-group adjacency and periodic metrics.
 - `tissue_subsampling_permutation_summary.csv`: permutation-based summaries and p-values.
 - `tissue_subsampling_permutation_distributions.csv`: full permutation distributions per group.
-- `tissue_subsampling_admixture_heatmap.png`: heatmap of K1–K4 proportions by individual, faceted by era and location.
+- `tissue_subsampling_admixture_heatmap.png`: heatmap of K2–K4 proportions by individual, faceted by era and location.
 - `tissue_subsampling_k4_heatmap.png`: heatmap of K4 proportions only, faceted by era and location.
 
 Interpretation:
