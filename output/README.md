@@ -30,6 +30,10 @@ Interpretation:
 - `tissue_subsampling_admixture_heatmap.png` helps visualize whether admixture patterns align with location/era structure (biological signal) versus scattered, isolated changes that could reflect contamination.
 - `tissue_subsampling_k4_heatmap.png` isolates K4 patterns to highlight potential mixing specific to that cluster.
 
+Plots:
+![](tissue_subsampling_admixture_heatmap.png)
+![](tissue_subsampling_k4_heatmap.png)
+
 **TODO 4**
 Outputs from extraction order tests.
 - `extraction_order_adjacency_metrics.csv`: per-group adjacency and periodic metrics.
@@ -71,6 +75,12 @@ Interpretation:
 - `extraction_plate_k4_heatmap.png` isolates K4 spatial patterns within plates.
 - `extraction_plate_cluster_heatmap.png` shows spatial mixing of dominant clusters across the plate.
 - `extraction_plate_admixedness_boxplot.png` helps compare overall admixedness distributions across plates.
+
+Plots:
+![](extraction_plate_admixedness_heatmap.png)
+![](extraction_plate_k4_heatmap.png)
+![](extraction_plate_cluster_heatmap.png)
+![](extraction_plate_admixedness_boxplot.png)
 
 Flagged plates (min p-value across metrics <= 0.05):
 | plate_key | plateid | elution | n_wells | n_missing_admixedness | min_p | min_metric |
