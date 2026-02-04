@@ -37,6 +37,9 @@ Tests whether library plate layout shows non-random spatial adjacency patterns i
 **07_dilution_plate_adjacency.R**
 Tests whether dilution plate layout shows non-random spatial adjacency patterns in `admixedness` and dominant genetic cluster using 4-neighbor wells within each plate and permutation baselines. Also generates plate-layout heatmaps (admixedness, K4 affiliation, dominant cluster) and per-plate admixedness summaries.
 
+**08_index_integrity_checks.R**
+Checks for duplicate i5+i7 index pairs within sequencing pools and within `Pool Round` runs using library metadata. Outputs pool-level duplicate details and summary counts with missing index diagnostics.
+
 Statistical hypotheses:
 - Adjacency differences: observed neighbor-to-neighbor `admixedness` differences are consistent with random arrangement within each plate.
 - Cluster mismatch: observed dominant-cluster mismatch rates between neighboring wells are consistent with random arrangement within each plate.

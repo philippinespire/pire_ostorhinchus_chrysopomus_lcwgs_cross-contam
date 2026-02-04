@@ -56,7 +56,9 @@ Notes:
 ---
 
 ## 8. Check index integrity within sequencing pools: duplicates of `i5` and `i7` index combinations within the same pool or run.
-- No entries yet.
+- 2026-02-03 22:08 CST — Checked for duplicate i5+i7 index pairs within pools and `Pool Round` runs. Outputs: `output/index_pair_duplicates_by_pool.csv`, `output/index_pair_duplicate_summary.csv`. Script: `scripts/08_index_integrity_checks.R`.
+- [Plan](PLANS/TODO-08.md)
+- [Decision log](DECISIONS_WORK/TODO-08.md)
 
 ---
 

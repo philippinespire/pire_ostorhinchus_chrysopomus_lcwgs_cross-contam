@@ -138,6 +138,15 @@ Plots:
 ![](dilution_plate_cluster_heatmap.png)
 ![](dilution_plate_admixedness_boxplot.png)
 
+**TODO 8**
+Outputs from index integrity checks within sequencing pools and runs.
+- `index_pair_duplicates_by_pool.csv`: detailed duplicate i5+i7 index pairs within each pool.
+- `index_pair_duplicate_summary.csv`: summary of duplicates and missing index values by pool and by run.
+
+Interpretation:
+- Use `index_pair_duplicates_by_pool.csv` to identify pools where multiple libraries share the same i5+i7 index pair.
+- `index_pair_duplicate_summary.csv` reports pool-level and run-level duplicate counts and highlights missing index values that need follow-up.
+
 Flagged plates (min p-value across metrics <= 0.05):
 | plate_key | plateid | elution | n_wells | n_missing_admixedness | min_p | min_metric |
 | --- | --- | --- | --- | --- | --- | --- |

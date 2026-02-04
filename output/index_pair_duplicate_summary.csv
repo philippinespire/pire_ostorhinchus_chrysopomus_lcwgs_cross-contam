@@ -1,0 +1,8 @@
+level,run_type,pool_round,run_key,pool_id,n_libraries,n_missing_i5,n_missing_i7,n_missing_pairs,n_duplicate_pairs,n_libraries_in_duplicates
+pool,test_lane,Test Lane,NA,Och-A,84,0,0,0,0,0
+pool,test_lane,Test Lane,NA,Och-C,113,0,0,0,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-A-2,24,0,0,0,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-C-2,64,0,0,0,0,0
+run,test_lane,Test Lane,test_lane|Test Lane,NA,197,0,0,0,0,0
+run,test_lane_2,Test Lane 2,test_lane_2|Test Lane 2,NA,88,0,0,0,0,0
+run,NA,N/A,NA|N/A,NA,72,0,0,0,0,0
