@@ -1,5 +1,14 @@
 # TODO-05 Decisions
 
+## 2026-02-03 21:20 CST
+Decision: Add a plate-layout heatmap colored by K4 affiliation for extraction plates.
+Rationale: Highlights spatial patterns specific to the K4 cluster that may indicate localized contamination or mixing.
+Options considered: Admixedness-only heatmap; dominant-cluster heatmap; include K4-specific heatmap.
+Implications: Adds `output/extraction_plate_k4_heatmap.png` for plate-level inspection of K4 proportions.
+Notes: Heatmap mirrors plate coordinates and is faceted by plate.
+Links: `PLANS/TODO-05.md`.
+---
+
 ## 2026-02-03 20:58 CST
 Decision: Add extraction-plate visualizations (admixedness heatmap, dominant-cluster heatmap, and per-plate admixedness boxplot).
 Rationale: Plate-layout heatmaps directly highlight spatial patterns that may reflect contamination, while the boxplot summarizes overall admixedness distributions per plate.

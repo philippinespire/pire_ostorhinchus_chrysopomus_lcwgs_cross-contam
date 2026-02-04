@@ -33,6 +33,7 @@ admixture_metrics <-
   select(
     individual_key,
     admixedness,
+    K4,
     dominant_cluster,
     conflict_flag
   )
@@ -388,6 +389,38 @@ admixedness_heatmap <-
 ggsave(
   filename = file.path(output_dir, "extraction_plate_admixedness_heatmap.png"),
   plot = admixedness_heatmap,
+  width = 12,
+  height = 8,
+  units = "in",
+  dpi = 300
+)
+
+k4_heatmap <- 
+  plate_wells_plot %>%
+  ggplot(aes(x = plate_col_num, y = plate_row_num, fill = K4)) +
+  geom_tile(color = "white", linewidth = 0.15) +
+  facet_wrap(~ plate_key) +
+  coord_equal() +
+  scale_x_continuous(breaks = plate_col_levels) +
+  scale_y_reverse(breaks = plate_row_levels, labels = plate_row_labels) +
+  scale_fill_gradient(low = "white", high = "#b30000", na.value = "grey90") +
+  labs(
+    title = "Extraction Plate K4 Affiliation Heatmap",
+    subtitle = "Tile layout mirrors plate coordinates (rows, columns)",
+    x = "Plate column",
+    y = "Plate row",
+    fill = "K4 proportion"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    strip.text = element_text(size = 8),
+    axis.text = element_text(size = 7)
+  )
+
+ggsave(
+  filename = file.path(output_dir, "extraction_plate_k4_heatmap.png"),
+  plot = k4_heatmap,
   width = 12,
   height = 8,
   units = "in",

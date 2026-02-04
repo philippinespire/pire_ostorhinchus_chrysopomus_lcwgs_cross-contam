@@ -269,14 +269,9 @@ heatmap_data <-
 
 heatmap_plot <- 
   heatmap_data %>%
-  # filter(location == "Tum",
-  #        era == "Historical") %>%
   ggplot(aes(x = cluster, y = individual_key, fill = prop)) +
   geom_tile() +
-  facet_wrap(era ~ location, 
-             scales = "free_y",
-             # space = "free_y"
-             ) +
+  facet_wrap(era ~ location, scales = "free_y") +
   scale_fill_gradient(low = "white", high = "#0b5fa5", na.value = "grey90") +
   labs(
     title = "Admixture Proportions by Individual",
@@ -296,6 +291,43 @@ heatmap_plot <-
 ggsave(
   filename = file.path(output_dir, "tissue_subsampling_admixture_heatmap.png"),
   plot = heatmap_plot,
+  width = 12,
+  height = 10,
+  units = "in",
+  dpi = 300
+)
+
+k4_heatmap_data <- 
+  admixture_key %>%
+  select(individual_key, location, era, K4) %>%
+  arrange(location, era, individual_key) %>%
+  mutate(individual_key = as.character(individual_key)) %>%
+  mutate(individual_key = factor(individual_key, levels = unique(individual_key)))
+
+k4_heatmap_plot <- 
+  k4_heatmap_data %>%
+  ggplot(aes(x = "K4", y = individual_key, fill = K4)) +
+  geom_tile() +
+  facet_wrap(era ~ location, scales = "free_y") +
+  scale_fill_gradient(low = "white", high = "#b30000", na.value = "grey90") +
+  labs(
+    title = "K4 Affiliation by Individual",
+    subtitle = "Faceted by era and location",
+    x = "Cluster",
+    y = "Individual key",
+    fill = "K4 proportion"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text.y = element_text(size = 6),
+    axis.text.x = element_text(size = 8),
+    strip.text = element_text(size = 8)
+  )
+
+ggsave(
+  filename = file.path(output_dir, "tissue_subsampling_k4_heatmap.png"),
+  plot = k4_heatmap_plot,
   width = 12,
   height = 10,
   units = "in",

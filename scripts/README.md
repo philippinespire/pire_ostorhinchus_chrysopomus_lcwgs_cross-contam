@@ -7,7 +7,7 @@ Summarizes admixture proportions into reusable, continuous metrics. Produces lon
 Builds a unified key table linking admixture summaries to extraction metadata, library metadata, and decode mappings. Generates diagnostics for unmatched or mismatched joins.
 
 **03_tissue_subsampling_tests.R**
-Tests whether tissue subsampling order shows non-random admixture patterns within each (`date_subsampling_date`, `subsampler`) group using continuous `admixedness` metrics and permutation baselines. Also generates a K1–K4 heatmap by individual faceted by location and era.
+Tests whether tissue subsampling order shows non-random admixture patterns within each (`date_subsampling_date`, `subsampler`) group using continuous `admixedness` metrics and permutation baselines. Also generates K1–K4 and K4-only heatmaps by individual faceted by location and era.
 
 Statistical hypotheses:
 - Adjacency shifts: observed neighbor-to-neighbor changes in `admixedness` are consistent with random ordering within a subsampling group.
@@ -29,7 +29,7 @@ Statistical hypotheses:
 Each hypothesis is evaluated using empirical p-values derived from within-group permutations.
 
 **05_extraction_plate_adjacency.R**
-Tests whether extraction plate layout shows non-random spatial adjacency patterns in `admixedness` and dominant genetic cluster using 4-neighbor wells within each plate and permutation baselines. Also generates plate-layout heatmaps and per-plate admixedness summaries.
+Tests whether extraction plate layout shows non-random spatial adjacency patterns in `admixedness` and dominant genetic cluster using 4-neighbor wells within each plate and permutation baselines. Also generates plate-layout heatmaps (admixedness, K4 affiliation, dominant cluster) and per-plate admixedness summaries.
 
 Statistical hypotheses:
 - Adjacency differences: observed neighbor-to-neighbor `admixedness` differences are consistent with random arrangement within each plate.

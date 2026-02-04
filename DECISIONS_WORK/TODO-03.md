@@ -1,5 +1,14 @@
 # TODO-03 Decisions
 
+## 2026-02-03 21:04 CST
+Decision: Add a K4-only heatmap (red scale) by individual, faceted by location and era.
+Rationale: Isolates K4 signal to evaluate whether that cluster shows spatial/era structure or scattered contamination signatures.
+Options considered: K1–K4 heatmap only; separate heatmaps for each cluster; K4-only heatmap.
+Implications: Adds `output/tissue_subsampling_k4_heatmap.png` for targeted review.
+Notes: Uses continuous K4 proportions without thresholds.
+Links: `PLANS/TODO-03.md`.
+---
+
 ## 2026-02-03 20:10 CST
 Decision: Add a K1–K4 heatmap by individual, faceted by location and era, to visualize admixture patterns alongside subsampling-order tests.
 Rationale: Supports distinguishing biological structure (consistent location/era patterns) from scattered, isolated admixture changes consistent with contamination.
