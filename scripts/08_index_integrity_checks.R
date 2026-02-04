@@ -8,6 +8,7 @@ library(readr)
 library(readxl)
 library(stringr)
 library(tidyr)
+library(ggplot2)
 
 output_dir <- "output"
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
@@ -210,4 +211,68 @@ readr::write_csv(
 readr::write_csv(
   summary_final,
   file.path(output_dir, "index_pair_duplicate_summary.csv")
+)
+
+#### TABLE VISUALIZATION ####
+summary_table <- 
+  summary_final %>%
+  mutate(row_id = row_number())
+
+summary_long <- 
+  summary_table %>%
+  mutate(
+    across(
+      everything(),
+      ~ if_else(is.na(.), "NA", as.character(.))
+    )
+  ) %>%
+  pivot_longer(
+    cols = -row_id,
+    names_to = "column",
+    values_to = "value"
+  ) %>%
+  mutate(
+    row = row_id,
+    is_header = FALSE
+  )
+
+summary_header <- 
+  tibble(
+    row = 0,
+    column = names(summary_table %>% select(-row_id)),
+    value = names(summary_table %>% select(-row_id)),
+    is_header = TRUE
+  )
+
+summary_plot_data <- 
+  bind_rows(summary_header, summary_long) %>%
+  mutate(
+    column = factor(column, levels = names(summary_table %>% select(-row_id))),
+    row = as.integer(row)
+  )
+
+table_plot <- 
+  summary_plot_data %>%
+  ggplot(aes(x = column, y = row)) +
+  geom_tile(fill = "white", color = "grey85") +
+  geom_text(
+    aes(label = value, fontface = if_else(is_header, "bold", "plain")),
+    size = 2.5
+  ) +
+  scale_y_reverse() +
+  theme_void() +
+  theme(
+    plot.margin = grid::unit(c(5, 5, 5, 5), "pt")
+  )
+
+plot_width <- max(8, length(unique(summary_plot_data$column)) * 1.2)
+plot_height <- max(4, length(unique(summary_plot_data$row)) * 0.35)
+
+ggsave(
+  filename = file.path(output_dir, "index_pair_duplicate_summary.png"),
+  plot = table_plot,
+  width = plot_width,
+  height = plot_height,
+  units = "in",
+  dpi = 300
 )

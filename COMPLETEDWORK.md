@@ -70,12 +70,16 @@ Notes:
 ---
 
 ## 10. Verify decode files against metadata for each sequencing run as described in `OBJECTIVES.md` using `data/pire_ostorhinchus_chrysopomus_lcwgs/*/fq_raw/decode_sedlist.txt`.
-- No entries yet.
+- 2026-02-03 22:25 CST — Compared decode sedlist pairs to metadata expectations for Test Lane, Test Lane 2, and Full Lane. Outputs: `output/decode_file_unmatched_decode_entries.csv`, `output/decode_file_missing_expected_entries.csv`, `output/decode_file_comparison_summary.csv`. Script: `scripts/10_decode_file_checks.R`.
+- [Plan](PLANS/TODO-10.md)
+- [Decision log](DECISIONS_WORK/TODO-10.md)
 
 ---
 
 ## 11. Verify `data/pire_ostorhinchus_chrysopomus_lcwgs/GenErode_Och_20k/data/raw_reads_symlinks/` link naming consistency with original FASTQ names.
-- No entries yet.
+- 2026-02-03 22:26 CST — Checked GenErode symlink naming consistency against original FASTQ names. Outputs: `output/generode_symlink_mismatch.csv`, `output/generode_symlink_summary.csv`. Script: `scripts/11_generode_symlink_checks.R`.
+- [Plan](PLANS/TODO-11.md)
+- [Decision log](DECISIONS_WORK/TODO-11.md)
 
 ---
 

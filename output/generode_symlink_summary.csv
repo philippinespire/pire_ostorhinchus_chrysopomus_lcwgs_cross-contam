@@ -1,0 +1,3 @@
+era,file_path,n_total,n_mismatches,mismatch_rate,example_links
+historical,data/pire_ostorhinchus_chrysopomus_lcwgs/GenErode_Och_20k/data/raw_reads_symlinks/historical/generode_hist_symlinks.txt,416,0,0,OchACan001_Ex1_L2_R1.fastq.gz;OchACan001_Ex1_L2_R2.fastq.gz;OchACan001_Ex1_L4_R1.fastq.gz;OchACan001_Ex1_L4_R2.fastq.gz;OchACan002_Ex1_L2_R1.fastq.gz
+modern,data/pire_ostorhinchus_chrysopomus_lcwgs/GenErode_Och_20k/data/raw_reads_symlinks/modern/generode_cont_symlinks.txt,642,224,0.34890965732087226,OchCBur013_Ex1_L2_R1.fastq.gz;OchCBur013_Ex1_L2_R2.fastq.gz;OchCBur013_Ex1_L4_R1.fastq.gz;OchCBur013_Ex1_L4_R2.fastq.gz;OchCBur014_Ex1_L2_R1.fastq.gz

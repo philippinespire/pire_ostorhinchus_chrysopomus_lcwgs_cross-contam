@@ -1,0 +1,5 @@
+run_label,expected_first,expected_second,pair_key
+test_lane,OcA0102311B1,Och-ACat_023-Ex1-11B-lcwgs-2-1,OcA0102311B1|Och-ACat_023-Ex1-11B-lcwgs-2-1
+test_lane,OcA0102311B2,Och-ATum_023-Ex1-11B-lcwgs-1-1,OcA0102311B2|Och-ATum_023-Ex1-11B-lcwgs-1-1
+full_lane,OchACat039_2,Och-ACat_039-Ex1-8A-lcwgs-1-2,OchACat039_2|Och-ACat_039-Ex1-8A-lcwgs-1-2
+full_lane,OchACat039_1,Och-ACat_039-Ex1-3D-lcwgs-2-2,OchACat039_1|Och-ACat_039-Ex1-3D-lcwgs-2-2

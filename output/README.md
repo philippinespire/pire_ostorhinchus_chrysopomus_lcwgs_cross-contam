@@ -163,10 +163,14 @@ Plots:
 Outputs from index integrity checks within sequencing pools and runs.
 - [index_pair_duplicates_by_pool.csv](index_pair_duplicates_by_pool.csv): detailed duplicate i5+i7 index pairs within each pool.
 - [index_pair_duplicate_summary.csv](index_pair_duplicate_summary.csv): summary of duplicates and missing index values by pool and by run.
+- `index_pair_duplicate_summary.png`: rendered table of the summary for quick review.
 
 Interpretation:
 - Use [index_pair_duplicates_by_pool.csv](index_pair_duplicates_by_pool.csv) to identify pools where multiple libraries share the same i5+i7 index pair.
 - [index_pair_duplicate_summary.csv](index_pair_duplicate_summary.csv) reports pool-level and run-level duplicate counts and highlights missing index values that need follow-up.
+
+Plots:
+![](index_pair_duplicate_summary.png)
 
 ---
 
@@ -178,3 +182,26 @@ Outputs from sequence name integrity checks within sequencing pools and runs.
 Interpretation:
 - Use [seq_name_duplicates_by_pool.csv](seq_name_duplicates_by_pool.csv) to identify pools where multiple libraries share the same sequencing name or ID.
 - [seq_name_duplicate_summary.csv](seq_name_duplicate_summary.csv) reports pool-level and run-level duplicate counts and highlights missing sequencing name values that need follow-up.
+
+---
+
+## TODO 10
+Outputs from decode file checks against metadata.
+- [decode_file_unmatched_decode_entries.csv](decode_file_unmatched_decode_entries.csv): decode entries not found in metadata expectations.
+- [decode_file_missing_expected_entries.csv](decode_file_missing_expected_entries.csv): expected metadata pairs missing from decode files.
+- [decode_file_comparison_summary.csv](decode_file_comparison_summary.csv): per-run counts of decode vs expected pairs and mismatches.
+
+Interpretation:
+- Use [decode_file_comparison_summary.csv](decode_file_comparison_summary.csv) to identify runs with mismatches.
+- Review [decode_file_unmatched_decode_entries.csv](decode_file_unmatched_decode_entries.csv) and [decode_file_missing_expected_entries.csv](decode_file_missing_expected_entries.csv) to trace specific discrepancies.
+
+---
+
+## TODO 11
+Outputs from GenErode symlink naming checks.
+- [generode_symlink_mismatch.csv](generode_symlink_mismatch.csv): symlink entries where normalized IDs do not match.
+- [generode_symlink_summary.csv](generode_symlink_summary.csv): summary of mismatch counts by era.
+
+Interpretation:
+- Use [generode_symlink_mismatch.csv](generode_symlink_mismatch.csv) to identify specific link/target pairs that need correction.
+- [generode_symlink_summary.csv](generode_symlink_summary.csv) highlights whether mismatches cluster in historical or modern symlinks.
