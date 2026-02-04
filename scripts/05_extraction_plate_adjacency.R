@@ -403,7 +403,7 @@ k4_heatmap <-
   coord_equal() +
   scale_x_continuous(breaks = plate_col_levels) +
   scale_y_reverse(breaks = plate_row_levels, labels = plate_row_labels) +
-  scale_fill_gradient(low = "white", high = "#b30000", na.value = "grey90") +
+  scale_fill_gradient(low = "#FC8D62", high = "#8DA0CB", na.value = "grey90") +
   labs(
     title = "Extraction Plate K4 Affiliation Heatmap",
     subtitle = "Tile layout mirrors plate coordinates (rows, columns)",

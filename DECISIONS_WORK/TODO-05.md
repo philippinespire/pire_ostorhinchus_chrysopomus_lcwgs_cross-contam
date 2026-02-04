@@ -1,5 +1,14 @@
 # TODO-05 Decisions
 
+## 2026-02-03 21:40 CST
+Decision: Set the K4 heatmap gradient to orange (low) and blue (high) using colors from the dominant-cluster palette.
+Rationale: Keeps the K4 affiliation heatmap visually consistent with the dominant cluster palette while maintaining a clear low-to-high gradient.
+Options considered: Red gradient; orange-to-blue gradient from the Set2 palette; grayscale.
+Implications: K4 heatmap now uses orange-to-blue gradient for easier cross-plot comparison.
+Notes: Uses Set2 palette colors (#FC8D62, #8DA0CB).
+Links: `PLANS/TODO-05.md`.
+---
+
 ## 2026-02-03 21:20 CST
 Decision: Add a plate-layout heatmap colored by K4 affiliation for extraction plates.
 Rationale: Highlights spatial patterns specific to the K4 cluster that may indicate localized contamination or mixing.
