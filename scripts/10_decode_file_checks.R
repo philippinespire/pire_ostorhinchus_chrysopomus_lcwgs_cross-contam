@@ -10,7 +10,7 @@ library(stringr)
 library(purrr)
 library(tidyr)
 
-output_dir <- "output"
+output_dir <- file.path("output", "TODO-10")
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 yes_values <- c("yes", "y", "true", "1")

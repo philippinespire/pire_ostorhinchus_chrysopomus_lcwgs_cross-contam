@@ -1,12 +1,17 @@
 # Scripts
 
-**01_admixture_summary.R**
+## TODO 01
+Script: `01_admixture_summary.R`
 Summarizes admixture proportions into reusable, continuous metrics. Produces long and wide tables plus per-sample metrics and QC outputs for downstream joins.
 
-**02_build_key_table.R**
+---
+## TODO 02
+Script: `02_build_key_table.R`
 Builds a unified key table linking admixture summaries to extraction metadata, library metadata, and decode mappings. Generates diagnostics for unmatched or mismatched joins.
 
-**03_tissue_subsampling_tests.R**
+---
+## TODO 03
+Script: `03_tissue_subsampling_tests.R`
 Tests whether tissue subsampling order shows non-random admixture patterns within each (`date_subsampling_date`, `subsampler`) group using continuous `admixedness` metrics and permutation baselines. Also generates K2–K4 and K4-only heatmaps by individual faceted by location and era.
 
 Statistical hypotheses:
@@ -17,7 +22,9 @@ Statistical hypotheses:
 
 Each hypothesis is evaluated using empirical p-values derived from within-group permutations.
 
-**04_extraction_order_tests.R**
+---
+## TODO 04
+Script: `04_extraction_order_tests.R`
 Tests whether extraction order shows non-random admixture patterns within each (`date_extracting_date`, `tube_stuffer`) group using continuous `admixedness` metrics and permutation baselines.
 
 Statistical hypotheses:
@@ -28,25 +35,39 @@ Statistical hypotheses:
 
 Each hypothesis is evaluated using empirical p-values derived from within-group permutations.
 
-**05_extraction_plate_adjacency.R**
+---
+## TODO 05
+Script: `05_extraction_plate_adjacency.R`
 Tests whether extraction plate layout shows non-random spatial adjacency patterns in `admixedness` and dominant genetic cluster using 4-neighbor wells within each plate and permutation baselines. Also generates plate-layout heatmaps (admixedness, K4 affiliation, dominant cluster) and per-plate admixedness summaries.
 
-**06_library_plate_adjacency.R**
+---
+## TODO 06
+Script: `06_library_plate_adjacency.R`
 Tests whether library plate layout shows non-random spatial adjacency patterns in `admixedness` and dominant genetic cluster using 4-neighbor wells within each plate and permutation baselines. Also generates plate-layout heatmaps (admixedness, K4 affiliation, dominant cluster) and per-plate admixedness summaries.
 
-**07_dilution_plate_adjacency.R**
+---
+## TODO 07
+Script: `07_dilution_plate_adjacency.R`
 Tests whether dilution plate layout shows non-random spatial adjacency patterns in `admixedness` and dominant genetic cluster using 4-neighbor wells within each plate and permutation baselines. Also generates plate-layout heatmaps (admixedness, K4 affiliation, dominant cluster) and per-plate admixedness summaries.
 
-**08_index_integrity_checks.R**
+---
+## TODO 08
+Script: `08_index_integrity_checks.R`
 Checks for duplicate i5+i7 index pairs within sequencing pools and within `Pool Round` runs using library metadata. Outputs pool-level duplicate details, summary counts with missing index diagnostics, and a rendered summary table PNG.
 
-**09_seq_name_integrity_checks.R**
+---
+## TODO 09
+Script: `09_seq_name_integrity_checks.R`
 Checks for duplicate sequencing name fields within pools and `Pool Round` runs using library metadata. Outputs pool-level duplicate details and summary counts with missing name diagnostics.
 
-**10_decode_file_checks.R**
+---
+## TODO 10
+Script: `10_decode_file_checks.R`
 Compares decode sedlist files to expected metadata pairs for each sequencing run and reports unmatched decode entries, missing expected pairs, and per-run summaries.
 
-**11_generode_symlink_checks.R**
+---
+## TODO 11
+Script: `11_generode_symlink_checks.R`
 Checks GenErode symlink naming consistency by comparing normalized individual IDs in link vs target filenames and reports mismatches by era.
 
 Statistical hypotheses:

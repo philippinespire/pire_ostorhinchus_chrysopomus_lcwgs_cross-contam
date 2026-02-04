@@ -9,12 +9,13 @@ library(stringr)
 library(readxl)
 library(purrr)
 
-output_dir <- "output"
+output_dir <- file.path("output", "TODO-02")
+input_dir <- file.path("output", "TODO-01")
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 #### LOAD INPUTS ####
 admixture_summary <- readr::read_csv(
-  file = file.path(output_dir, "admixture_summary.csv"),
+  file = file.path(input_dir, "admixture_summary.csv"),
   show_col_types = FALSE
 )
 

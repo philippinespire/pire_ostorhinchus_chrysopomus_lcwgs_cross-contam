@@ -10,7 +10,7 @@ library(stringr)
 library(tidyr)
 library(ggplot2)
 
-output_dir <- "output"
+output_dir <- file.path("output", "TODO-08")
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 yes_values <- c("yes", "y", "true", "1")

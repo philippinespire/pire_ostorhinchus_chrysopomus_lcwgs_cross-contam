@@ -9,14 +9,15 @@ library(readxl)
 library(stringr)
 library(purrr)
 
-output_dir <- "output"
+output_dir <- file.path("output", "TODO-04")
+input_dir <- file.path("output", "TODO-02")
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 n_permutations <- 1000
 
 #### LOAD INPUTS ####
 admixture_key <- readr::read_csv(
-  file = file.path(output_dir, "admixture_extraction_library_key.csv"),
+  file = file.path(input_dir, "admixture_extraction_library_key.csv"),
   show_col_types = FALSE
 )
 

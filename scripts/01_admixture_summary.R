@@ -1,7 +1,8 @@
 #### SETUP ####
 library(tidyverse)
 
-dir.create("output", showWarnings = FALSE, recursive = TRUE)
+output_dir <- file.path("output", "TODO-01")
+dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 #### LOAD DATA ####
 admixture_raw <- readr::read_csv(
@@ -76,7 +77,7 @@ admixture_summary <-
   )
 
 #### EXPORT OUTPUTS ####
-readr::write_csv(admixture_long, "output/admixture_long.csv")
-readr::write_csv(admixture_metrics, "output/admixture_metrics.csv")
-readr::write_csv(admixture_summary, "output/admixture_summary.csv")
-readr::write_csv(admixture_qc, "output/admixture_qc.csv")
+readr::write_csv(admixture_long, file.path(output_dir, "admixture_long.csv"))
+readr::write_csv(admixture_metrics, file.path(output_dir, "admixture_metrics.csv"))
+readr::write_csv(admixture_summary, file.path(output_dir, "admixture_summary.csv"))
+readr::write_csv(admixture_qc, file.path(output_dir, "admixture_qc.csv"))

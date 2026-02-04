@@ -9,7 +9,7 @@ library(stringr)
 library(purrr)
 library(tidyr)
 
-output_dir <- "output"
+output_dir <- file.path("output", "TODO-11")
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 #### LOAD INPUTS ####
