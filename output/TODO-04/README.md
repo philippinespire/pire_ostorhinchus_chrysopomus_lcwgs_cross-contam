@@ -1,12 +1,12 @@
 # TODO 4 Results
 
 Outputs from extraction order tests.
-- [extraction_order_adjacency_metrics.csv](TODO-04/extraction_order_adjacency_metrics.csv): per-group adjacency and periodic metrics.
-- [extraction_order_permutation_summary.csv](TODO-04/extraction_order_permutation_summary.csv): permutation-based summaries and p-values.
-- [extraction_order_permutation_distributions.csv](TODO-04/extraction_order_permutation_distributions.csv): full permutation distributions per group.
+- [extraction_order_adjacency_metrics.csv](extraction_order_adjacency_metrics.csv): per-group adjacency and periodic metrics.
+- [extraction_order_permutation_summary.csv](extraction_order_permutation_summary.csv): permutation-based summaries and p-values.
+- [extraction_order_permutation_distributions.csv](extraction_order_permutation_distributions.csv): full permutation distributions per group.
 
 Interpretation:
-- Use [extraction_order_permutation_summary.csv](TODO-04/extraction_order_permutation_summary.csv) to identify extraction groups (by `date_extracting_date` and `tube_stuffer`) with low empirical p-values, indicating non-random adjacency or periodic patterns in `admixedness`.
+- Use [extraction_order_permutation_summary.csv](extraction_order_permutation_summary.csv) to identify extraction groups (by `date_extracting_date` and `tube_stuffer`) with low empirical p-values, indicating non-random adjacency or periodic patterns in `admixedness`.
 - `adj_abs_diff_mean` reflects average neighbor-to-neighbor changes in `admixedness` across extraction order.
 - `high_low_transition_rate` captures switches between lower and higher `admixedness` quantiles without hard thresholds.
 - `period2_corr` and `period3_corr` summarize similarity to alternating or period-3 patterns; compare observed values to permutation means and p-values.

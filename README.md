@@ -15,6 +15,8 @@ Determine whether cross contamination can explain any of the admixed individuals
 - `data/och_admixture_values.csv`: individual-level admixture summaries.
 - `data/och_extractions_only.xlsx`: extraction metadata and tissue subsampling notes.
 - `data/Och_SSLibrariesforCapture_metadata.xlsx`: library construction and sequencing metadata.
+- `data/individuals_sheet_och.xlsx`: individual-level reference sheet for identifier reconciliation.
+- `data/lot_sheet_och.xlsx`: lot-level reference sheet for tissue/extraction provenance.
 - `data/seq_reports/`: sequencing summary spreadsheets from Novogene.
 - `data/pire_ostorhinchus_chrysopomus_lcwgs/*/fq_raw/decode_sedlist.txt`: decode mappings for each sequencing run.
 - `data/pire_ostorhinchus_chrysopomus_lcwgs/GenErode_Och_20k/data/raw_reads_symlinks/`: captured symlink listings from the GenErode raw reads directory (mirrors the Wahab repo layout).
@@ -30,7 +32,7 @@ Determine whether cross contamination can explain any of the admixed individuals
 - `data/pire_ostorhinchus_chrysopomus_lcwgs/`: mirrors the Wahab repo layout for sequencing runs and GenErode symlink captures.
 - `data/seq_reports/`: sequencing output summaries.
 - `scripts/`: analysis scripts (when added).
-- `output/`: analysis outputs (when generated).
+- `output/`: analysis outputs, organized by TODO (`output/TODO-XX/`), each with a `README.md`.
 
 ```
 .
@@ -42,6 +44,8 @@ Determine whether cross contamination can explain any of the admixed individuals
 │   ├── och_admixture_values.csv
 │   ├── och_extractions_only.xlsx
 │   ├── Och_SSLibrariesforCapture_metadata.xlsx
+│   ├── individuals_sheet_och.xlsx
+│   ├── lot_sheet_och.xlsx
 │   ├── seq_reports
 │   │   ├── PIRE-Adu-Och-Sde-Sin_December2024_SeqSummary.xlsx
 │   │   ├── PIRE-Cha-Och-TestLane_SeqSummary.xlsx
@@ -72,5 +76,28 @@ Determine whether cross contamination can explain any of the admixed individuals
 │                   └── modern
 │                       └── generode_cont_symlinks.txt
 ├── output
+│   ├── README.md
+│   ├── TODO-01
+│   │   └── README.md
+│   ├── TODO-02
+│   │   └── README.md
+│   ├── TODO-03
+│   │   └── README.md
+│   ├── TODO-04
+│   │   └── README.md
+│   ├── TODO-05
+│   │   └── README.md
+│   ├── TODO-06
+│   │   └── README.md
+│   ├── TODO-07
+│   │   └── README.md
+│   ├── TODO-08
+│   │   └── README.md
+│   ├── TODO-09
+│   │   └── README.md
+│   ├── TODO-10
+│   │   └── README.md
+│   └── TODO-11
+│       └── README.md
 └── scripts
 ```
