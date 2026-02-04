@@ -1,0 +1,36 @@
+level,run_type,pool_round,run_key,pool_id,seq_field,n_libraries,n_missing,n_duplicate_values,n_libraries_in_duplicates
+pool,test_lane,Test Lane,NA,Och-A,full_seq_decode,84,6,0,0
+pool,test_lane,Test Lane,NA,Och-A,full_seq_name,84,6,0,0
+pool,test_lane,Test Lane,NA,Och-A,novogene_seq_id,84,0,0,0
+pool,test_lane,Test Lane,NA,Och-A,sequence_id,84,0,0,0
+pool,test_lane,Test Lane,NA,Och-A,test_lane_seq_name,84,0,37,80
+pool,test_lane,Test Lane,NA,Och-C,full_seq_decode,113,17,0,0
+pool,test_lane,Test Lane,NA,Och-C,full_seq_name,113,17,0,0
+pool,test_lane,Test Lane,NA,Och-C,novogene_seq_id,113,0,0,0
+pool,test_lane,Test Lane,NA,Och-C,sequence_id,113,0,0,0
+pool,test_lane,Test Lane,NA,Och-C,test_lane_seq_name,113,0,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-A-2,full_seq_decode,24,0,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-A-2,full_seq_name,24,0,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-A-2,novogene_seq_id,24,0,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-A-2,sequence_id,24,0,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-A-2,test_lane_seq_name,24,0,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-C-2,full_seq_decode,64,16,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-C-2,full_seq_name,64,16,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-C-2,novogene_seq_id,64,0,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-C-2,sequence_id,64,0,0,0
+pool,test_lane_2,Test Lane 2,NA,Och-C-2,test_lane_seq_name,64,0,0,0
+run,test_lane,Test Lane,test_lane|Test Lane,NA,full_seq_decode,197,23,0,0
+run,test_lane,Test Lane,test_lane|Test Lane,NA,full_seq_name,197,23,0,0
+run,test_lane,Test Lane,test_lane|Test Lane,NA,novogene_seq_id,197,0,0,0
+run,test_lane,Test Lane,test_lane|Test Lane,NA,sequence_id,197,0,0,0
+run,test_lane,Test Lane,test_lane|Test Lane,NA,test_lane_seq_name,197,0,37,80
+run,test_lane_2,Test Lane 2,test_lane_2|Test Lane 2,NA,full_seq_decode,88,16,0,0
+run,test_lane_2,Test Lane 2,test_lane_2|Test Lane 2,NA,full_seq_name,88,16,0,0
+run,test_lane_2,Test Lane 2,test_lane_2|Test Lane 2,NA,novogene_seq_id,88,0,0,0
+run,test_lane_2,Test Lane 2,test_lane_2|Test Lane 2,NA,sequence_id,88,0,0,0
+run,test_lane_2,Test Lane 2,test_lane_2|Test Lane 2,NA,test_lane_seq_name,88,0,0,0
+run,NA,N/A,NA|N/A,NA,full_seq_decode,72,72,0,0
+run,NA,N/A,NA|N/A,NA,full_seq_name,72,72,0,0
+run,NA,N/A,NA|N/A,NA,novogene_seq_id,72,0,1,72
+run,NA,N/A,NA|N/A,NA,sequence_id,72,0,1,72
+run,NA,N/A,NA|N/A,NA,test_lane_seq_name,72,0,1,72

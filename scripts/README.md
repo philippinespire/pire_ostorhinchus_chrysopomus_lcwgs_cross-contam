@@ -40,6 +40,9 @@ Tests whether dilution plate layout shows non-random spatial adjacency patterns 
 **08_index_integrity_checks.R**
 Checks for duplicate i5+i7 index pairs within sequencing pools and within `Pool Round` runs using library metadata. Outputs pool-level duplicate details and summary counts with missing index diagnostics.
 
+**09_seq_name_integrity_checks.R**
+Checks for duplicate sequencing name fields within pools and `Pool Round` runs using library metadata. Outputs pool-level duplicate details and summary counts with missing name diagnostics.
+
 Statistical hypotheses:
 - Adjacency differences: observed neighbor-to-neighbor `admixedness` differences are consistent with random arrangement within each plate.
 - Cluster mismatch: observed dominant-cluster mismatch rates between neighboring wells are consistent with random arrangement within each plate.

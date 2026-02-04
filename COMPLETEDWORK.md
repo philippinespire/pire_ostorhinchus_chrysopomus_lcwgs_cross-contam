@@ -63,7 +63,9 @@ Notes:
 ---
 
 ## 9. Check seq name integrity within sequencing pools: duplicates of `Test Lane Seq Name`, `NovoGeneSeqID`, `Full seq Name`, and decode names where they should be unique.
-- No entries yet.
+- 2026-02-03 22:20 CST — Checked for duplicate sequencing names/IDs within pools and `Pool Round` runs. Outputs: `output/seq_name_duplicates_by_pool.csv`, `output/seq_name_duplicate_summary.csv`. Script: `scripts/09_seq_name_integrity_checks.R`.
+- [Plan](PLANS/TODO-09.md)
+- [Decision log](DECISIONS_WORK/TODO-09.md)
 
 ---
 
