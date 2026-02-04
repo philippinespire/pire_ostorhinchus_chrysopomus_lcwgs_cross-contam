@@ -8,6 +8,7 @@ Outputs from tissue subsampling order tests.
 - [tissue_subsampling_k4_heatmap.png](tissue_subsampling_k4_heatmap.png): heatmap of K4 proportions only, faceted by era and location.
 
 Interpretation:
+- Admixedness, the metric used is Amax​=1−max(p1​,p2​,p3​,p4​)
 - Use [tissue_subsampling_permutation_summary.csv](tissue_subsampling_permutation_summary.csv) to identify groups (by `date_subsampling_date` and `subsampler`) with low empirical p-values, indicating non-random adjacency or periodic patterns in `admixedness`.
 - `adj_abs_diff_mean` reflects average neighbor-to-neighbor changes in `admixedness`; higher-than-expected values suggest abrupt shifts between consecutive samples.
 - `high_low_transition_rate` captures switches between lower and higher quantiles of `admixedness` without hard thresholds.
