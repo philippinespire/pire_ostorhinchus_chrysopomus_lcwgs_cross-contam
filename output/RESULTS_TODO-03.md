@@ -12,8 +12,8 @@ Interpretation:
 - `adj_abs_diff_mean` reflects average neighbor-to-neighbor changes in `admixedness`; higher-than-expected values suggest abrupt shifts between consecutive samples.
 - `high_low_transition_rate` captures switches between lower and higher quantiles of `admixedness` without hard thresholds.
 - `period2_corr` and `period3_corr` summarize similarity to alternating or every-third patterns; compare observed values to permutation means and p-values.
-- `tissue_subsampling_admixture_heatmap.png` helps visualize whether admixture patterns align with location/era structure (biological signal) versus scattered, isolated changes that could reflect contamination.
-- `tissue_subsampling_k4_heatmap.png` isolates K4 patterns to highlight potential mixing specific to that cluster.
+- [tissue_subsampling_admixture_heatmap.png](TODO-03/tissue_subsampling_admixture_heatmap.png) helps visualize whether admixture patterns align with location/era structure (biological signal) versus scattered, isolated changes that could reflect contamination.
+- [tissue_subsampling_k4_heatmap.png](TODO-03/tissue_subsampling_k4_heatmap.png) isolates K4 patterns to highlight potential mixing specific to that cluster.
 
 Plots:
 ![](TODO-03/tissue_subsampling_admixture_heatmap.png)

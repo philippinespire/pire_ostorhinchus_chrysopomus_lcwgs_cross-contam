@@ -16,10 +16,10 @@ Interpretation:
 - `adj_abs_diff_mean` and `adj_abs_diff_median` summarize how sharply `admixedness` changes between neighboring wells (up/down/left/right).
 - `cluster_mismatch_rate` captures how often adjacent wells have different dominant clusters; elevated values may indicate spatial mixing on the plate.
 - Check [extraction_plate_diagnostics.csv](TODO-05/extraction_plate_diagnostics.csv) for missing or duplicated coordinates that could bias adjacency metrics and [extraction_plate_counts.csv](TODO-05/extraction_plate_counts.csv) to confirm plate sizes.
-- `extraction_plate_admixedness_heatmap.png` highlights spatial gradients or patchiness in admixedness.
-- `extraction_plate_k4_heatmap.png` isolates K4 spatial patterns within plates.
-- `extraction_plate_cluster_heatmap.png` shows spatial mixing of dominant clusters across the plate.
-- `extraction_plate_admixedness_boxplot.png` helps compare overall admixedness distributions across plates.
+- [extraction_plate_admixedness_heatmap.png](TODO-05/extraction_plate_admixedness_heatmap.png) highlights spatial gradients or patchiness in admixedness.
+- [extraction_plate_k4_heatmap.png](TODO-05/extraction_plate_k4_heatmap.png) isolates K4 spatial patterns within plates.
+- [extraction_plate_cluster_heatmap.png](TODO-05/extraction_plate_cluster_heatmap.png) shows spatial mixing of dominant clusters across the plate.
+- [extraction_plate_admixedness_boxplot.png](TODO-05/extraction_plate_admixedness_boxplot.png) helps compare overall admixedness distributions across plates.
 
 Flagged plates (min p-value across metrics <= 0.05):
 | plate_key | plateid | elution | n_wells | n_missing_admixedness | min_p | min_metric |
