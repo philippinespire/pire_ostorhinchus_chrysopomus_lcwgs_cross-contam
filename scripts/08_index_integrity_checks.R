@@ -222,7 +222,7 @@ summary_long <-
   summary_table %>%
   mutate(
     across(
-      everything(),
+      -row_id,
       ~ if_else(is.na(.), "NA", as.character(.))
     )
   ) %>%
@@ -232,7 +232,7 @@ summary_long <-
     values_to = "value"
   ) %>%
   mutate(
-    row = row_id,
+    row = as.integer(row_id),
     is_header = FALSE
   )
 

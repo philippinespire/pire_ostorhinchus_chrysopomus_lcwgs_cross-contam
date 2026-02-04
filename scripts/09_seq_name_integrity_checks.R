@@ -29,7 +29,6 @@ library_base <-
     full_lane_pool = Pool,
     in_test_lane = `Pool for lcwgs test?`,
     in_full_lane = `Pool for full seq?`,
-    test_lane_seq_name = `Test Lane Seq Name`,
     novogene_seq_id = NovoGeneSeqID,
     sequence_id = Sequence_ID,
     full_seq_name = `Full seq Name`,
@@ -65,19 +64,17 @@ pool_duplicates_long <-
   library_base %>%
   filter(!is.na(run_type), !is.na(pool_id)) %>%
   mutate(
-    test_lane_seq_name_all = test_lane_seq_name,
     novogene_seq_id_all = novogene_seq_id,
     sequence_id_all = sequence_id,
     full_seq_name_all = full_seq_name,
     full_seq_decode_all = full_seq_decode,
     sequence_id = na_if(sequence_id, ""),
-    test_lane_seq_name = na_if(test_lane_seq_name, ""),
     novogene_seq_id = na_if(novogene_seq_id, ""),
     full_seq_name = na_if(full_seq_name, ""),
     full_seq_decode = na_if(full_seq_decode, "")
   ) %>%
   pivot_longer(
-    cols = c(test_lane_seq_name, novogene_seq_id, sequence_id, full_seq_name, full_seq_decode),
+    cols = c(novogene_seq_id, sequence_id, full_seq_name, full_seq_decode),
     names_to = "seq_field",
     values_to = "seq_value"
   ) %>%
@@ -104,19 +101,17 @@ run_duplicates_long <-
   library_base %>%
   filter(!is.na(run_key)) %>%
   mutate(
-    test_lane_seq_name_all = test_lane_seq_name,
     novogene_seq_id_all = novogene_seq_id,
     sequence_id_all = sequence_id,
     full_seq_name_all = full_seq_name,
     full_seq_decode_all = full_seq_decode,
     sequence_id = na_if(sequence_id, ""),
-    test_lane_seq_name = na_if(test_lane_seq_name, ""),
     novogene_seq_id = na_if(novogene_seq_id, ""),
     full_seq_name = na_if(full_seq_name, ""),
     full_seq_decode = na_if(full_seq_decode, "")
   ) %>%
   pivot_longer(
-    cols = c(test_lane_seq_name, novogene_seq_id, sequence_id, full_seq_name, full_seq_decode),
+    cols = c(novogene_seq_id, sequence_id, full_seq_name, full_seq_decode),
     names_to = "seq_field",
     values_to = "seq_value"
   ) %>%
@@ -143,14 +138,13 @@ pool_summary_long <-
   library_base %>%
   filter(!is.na(run_type), !is.na(pool_id)) %>%
   mutate(
-    test_lane_seq_name = na_if(test_lane_seq_name, ""),
     novogene_seq_id = na_if(novogene_seq_id, ""),
     sequence_id = na_if(sequence_id, ""),
     full_seq_name = na_if(full_seq_name, ""),
     full_seq_decode = na_if(full_seq_decode, "")
   ) %>%
   pivot_longer(
-    cols = c(test_lane_seq_name, novogene_seq_id, sequence_id, full_seq_name, full_seq_decode),
+    cols = c(novogene_seq_id, sequence_id, full_seq_name, full_seq_decode),
     names_to = "seq_field",
     values_to = "seq_value"
   )
@@ -186,14 +180,13 @@ run_summary_long <-
   library_base %>%
   filter(!is.na(run_key)) %>%
   mutate(
-    test_lane_seq_name = na_if(test_lane_seq_name, ""),
     novogene_seq_id = na_if(novogene_seq_id, ""),
     sequence_id = na_if(sequence_id, ""),
     full_seq_name = na_if(full_seq_name, ""),
     full_seq_decode = na_if(full_seq_decode, "")
   ) %>%
   pivot_longer(
-    cols = c(test_lane_seq_name, novogene_seq_id, sequence_id, full_seq_name, full_seq_decode),
+    cols = c(novogene_seq_id, sequence_id, full_seq_name, full_seq_decode),
     names_to = "seq_field",
     values_to = "seq_value"
   )
