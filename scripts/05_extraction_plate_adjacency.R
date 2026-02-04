@@ -8,6 +8,7 @@ library(readr)
 library(readxl)
 library(stringr)
 library(purrr)
+library(ggplot2)
 
 output_dir <- "output"
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
@@ -328,4 +329,124 @@ readr::write_csv(
 readr::write_csv(
   plate_counts,
   file.path(output_dir, "extraction_plate_counts.csv")
+)
+
+#### VISUALIZATIONS ####
+plate_row_levels <- 
+  plate_wells %>%
+  distinct(plate_row_num) %>%
+  arrange(plate_row_num) %>%
+  pull(plate_row_num)
+
+plate_row_labels <- 
+  purrr::map_chr(
+    plate_row_levels,
+    function(row_value) {
+      if (!is.na(row_value) && row_value >= 1 && row_value <= length(LETTERS)) {
+        LETTERS[row_value]
+      } else {
+        as.character(row_value)
+      }
+    }
+  )
+
+plate_col_levels <- 
+  plate_wells %>%
+  distinct(plate_col_num) %>%
+  arrange(plate_col_num) %>%
+  pull(plate_col_num)
+
+plate_wells_plot <- 
+  plate_wells %>%
+  mutate(
+    plate_key = factor(plate_key, levels = unique(plate_key))
+  )
+
+admixedness_heatmap <- 
+  plate_wells_plot %>%
+  ggplot(aes(x = plate_col_num, y = plate_row_num, fill = admixedness)) +
+  geom_tile(color = "white", linewidth = 0.15) +
+  facet_wrap(~ plate_key) +
+  coord_equal() +
+  scale_x_continuous(breaks = plate_col_levels) +
+  scale_y_reverse(breaks = plate_row_levels, labels = plate_row_labels) +
+  scale_fill_gradient(low = "white", high = "#0b5fa5", na.value = "grey90") +
+  labs(
+    title = "Extraction Plate Admixture Heatmap",
+    subtitle = "Tile layout mirrors plate coordinates (rows, columns)",
+    x = "Plate column",
+    y = "Plate row",
+    fill = "Admixedness"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    strip.text = element_text(size = 8),
+    axis.text = element_text(size = 7)
+  )
+
+ggsave(
+  filename = file.path(output_dir, "extraction_plate_admixedness_heatmap.png"),
+  plot = admixedness_heatmap,
+  width = 12,
+  height = 8,
+  units = "in",
+  dpi = 300
+)
+
+cluster_heatmap <- 
+  plate_wells_plot %>%
+  mutate(dominant_cluster = as.factor(dominant_cluster)) %>%
+  ggplot(aes(x = plate_col_num, y = plate_row_num, fill = dominant_cluster)) +
+  geom_tile(color = "white", linewidth = 0.15) +
+  facet_wrap(~ plate_key) +
+  coord_equal() +
+  scale_x_continuous(breaks = plate_col_levels) +
+  scale_y_reverse(breaks = plate_row_levels, labels = plate_row_labels) +
+  scale_fill_brewer(palette = "Set2", na.value = "grey90") +
+  labs(
+    title = "Extraction Plate Dominant Cluster Heatmap",
+    subtitle = "Dominant genetic cluster per well (NA = missing)",
+    x = "Plate column",
+    y = "Plate row",
+    fill = "Dominant cluster"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    strip.text = element_text(size = 8),
+    axis.text = element_text(size = 7)
+  )
+
+ggsave(
+  filename = file.path(output_dir, "extraction_plate_cluster_heatmap.png"),
+  plot = cluster_heatmap,
+  width = 12,
+  height = 8,
+  units = "in",
+  dpi = 300
+)
+
+admixedness_boxplot <- 
+  plate_wells_plot %>%
+  ggplot(aes(x = plate_key, y = admixedness)) +
+  geom_boxplot(outlier.alpha = 0.5, na.rm = TRUE) +
+  coord_flip() +
+  labs(
+    title = "Admixedness by Extraction Plate",
+    x = "Plate",
+    y = "Admixedness"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.y = element_text(size = 7)
+  )
+
+ggsave(
+  filename = file.path(output_dir, "extraction_plate_admixedness_boxplot.png"),
+  plot = admixedness_boxplot,
+  width = 10,
+  height = 6,
+  units = "in",
+  dpi = 300
 )

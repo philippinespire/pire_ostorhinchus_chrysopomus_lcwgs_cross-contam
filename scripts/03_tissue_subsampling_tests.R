@@ -8,6 +8,8 @@ library(readr)
 library(readxl)
 library(stringr)
 library(purrr)
+library(tidyr)
+library(ggplot2)
 
 output_dir <- "output"
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
@@ -30,6 +32,7 @@ admixture_metrics <-
     admixedness,
     max_prop,
     dominant_cluster,
+    K1,K2,K3,K4,
     conflict_flag
   )
 
@@ -246,4 +249,55 @@ readr::write_csv(
 readr::write_csv(
   permutation_distributions,
   file.path(output_dir, "tissue_subsampling_permutation_distributions.csv")
+)
+
+#### VISUALIZATIONS ####
+heatmap_data <- 
+  admixture_key %>%
+  select(individual_key, location, era, K1, K2, K3, K4) %>%
+  arrange(location, era, individual_key) %>%
+  mutate(individual_key = as.character(individual_key)) %>%
+  tidyr::pivot_longer(
+    cols = c(K1, K2, K3, K4),
+    names_to = "cluster",
+    values_to = "prop"
+  ) %>%
+  mutate(
+    cluster = factor(cluster, levels = c("K1", "K2", "K3", "K4")),
+    individual_key = factor(individual_key, levels = unique(individual_key))
+  )
+
+heatmap_plot <- 
+  heatmap_data %>%
+  # filter(location == "Tum",
+  #        era == "Historical") %>%
+  ggplot(aes(x = cluster, y = individual_key, fill = prop)) +
+  geom_tile() +
+  facet_wrap(era ~ location, 
+             scales = "free_y",
+             # space = "free_y"
+             ) +
+  scale_fill_gradient(low = "white", high = "#0b5fa5", na.value = "grey90") +
+  labs(
+    title = "Admixture Proportions by Individual",
+    subtitle = "Faceted by era and location to contrast biological structure vs contamination",
+    x = "Genetic cluster",
+    y = "Individual key",
+    fill = "Cluster proportion"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text.y = element_text(size = 6),
+    axis.text.x = element_text(size = 8),
+    strip.text = element_text(size = 8)
+  )
+
+ggsave(
+  filename = file.path(output_dir, "tissue_subsampling_admixture_heatmap.png"),
+  plot = heatmap_plot,
+  width = 12,
+  height = 10,
+  units = "in",
+  dpi = 300
 )
