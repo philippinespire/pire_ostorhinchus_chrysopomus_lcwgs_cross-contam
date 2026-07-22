@@ -467,7 +467,209 @@ anova(m_same_row_col)
 
 #### Directional Cross Contamination in Extraction using Relatedness ####
 
+pipette_df <-
+  model_df %>%
+  mutate(
+    same_channel = row_distance == 0,
+    col_lag = abs(col1 - col2),
+    
+    col_early = pmin(col1, col2),
+    col_late  = pmax(col1, col2),
+    
+    later_col_z = as.numeric(scale(col_late)),
+    
+    same_row_lag1 = same_channel & col_lag == 1,
+    same_row_lag2 = same_channel & col_lag == 2,
+    same_row_lag3plus = same_channel & col_lag >= 3,
+    
+    same_col_diff_row = row_distance > 0 & col_lag == 0,
+    
+    same_row_inv_lag = if_else(
+      same_channel & col_lag > 0,
+      1 / col_lag,
+      0
+    ),
+    
+    same_row_inv_lag_late_col =
+      same_row_inv_lag * later_col_z
+  )
 
+m_pipette_lag <-
+  lmer(
+    r ~ same_row_lag1 +
+      same_row_lag2 +
+      same_row_lag3plus +
+      same_col_diff_row +
+      era_pair +
+      (1 | plate_extraction) +
+      (1 | indid1) +
+      (1 | indid2),
+    data = pipette_df,
+    REML = FALSE
+  )
+
+summary(m_pipette_lag)
+anova(m_pipette_lag)
+
+
+m_row_col <-
+  lmer(
+    r ~ row_distance +
+      col_distance +
+      era_pair +
+      (1 | plate_extraction) +
+      (1 | indid1) +
+      (1 | indid2),
+    data = pipette_df,
+    REML = FALSE
+  )
+
+m_pipette_direction <-
+  lmer(
+    r ~ row_distance +
+      col_distance +
+      same_row_inv_lag +
+      same_row_inv_lag_late_col +
+      era_pair +
+      (1 | plate_extraction) +
+      (1 | indid1) +
+      (1 | indid2),
+    data = pipette_df,
+    REML = FALSE
+  )
+
+anova(m_row_col, m_pipette_direction)
+summary(m_pipette_direction)
+
+pipette_df %>%
+  filter(same_channel) %>%
+  ggplot() +
+  aes(
+    x = col_lag,
+    y = r,
+    color = plate_extraction
+  ) +
+  geom_jitter(
+    width = 0.08,
+    height = 0,
+    alpha = 0.5
+  ) +
+  geom_smooth(
+    aes(group = 1),
+    method = "lm",
+    se = TRUE,
+    color = "black"
+  ) +
+  theme_minimal() +
+  labs(
+    title = "Relatedness among wells in the same pipettor channel",
+    x = "Column lag",
+    y = "Relatedness, r",
+    color = "Extraction plate"
+  )
+
+
+pipette_df %>%
+  filter(same_channel) %>%
+  group_by(
+    plate_extraction,
+    potential_recipient_col = col_late
+  ) %>%
+  summarise(
+    mean_r_to_upstream = mean(r, na.rm = TRUE),
+    n_pairs = n(),
+    .groups = "drop"
+  ) %>%
+  ggplot() +
+  aes(
+    x = potential_recipient_col,
+    y = mean_r_to_upstream,
+    color = plate_extraction
+  ) +
+  geom_point(size = 2) +
+  geom_smooth(
+    method = "lm",
+    se = FALSE
+  ) +
+  theme_minimal() +
+  labs(
+    title = "Mean relatedness to upstream wells",
+    x = "Potential recipient column",
+    y = "Mean r to upstream wells",
+    color = "Extraction plate"
+  )
+
+#### Refit the baseline model using pipette_df:####
+
+m_row_col_pipette_df <-
+  lmer(
+    r ~ row_distance +
+      col_distance +
+      era_pair +
+      (1 | plate_extraction) +
+      (1 | indid1) +
+      (1 | indid2),
+    data = pipette_df,
+    REML = FALSE
+  )
+
+anova(m_row_col_pipette_df, m_pipette_direction)
+
+#### only same-row adjacent pairs: ####
+
+pipette_df %>%
+  filter(
+    same_channel,
+    col_lag == 1
+  ) %>%
+  mutate(
+    potential_recipient_col = col_late
+  ) %>%
+  ggplot() +
+  aes(
+    x = potential_recipient_col,
+    y = r,
+    color = plate_extraction
+  ) +
+  geom_jitter(
+    width = 0.08,
+    height = 0,
+    alpha = 0.6
+  ) +
+  geom_smooth(
+    method = "lm",
+    se = FALSE
+  ) +
+  theme_minimal() +
+  labs(
+    title = "Relatedness between adjacent same-row wells",
+    x = "Potential recipient column",
+    y = "Relatedness, r",
+    color = "Extraction plate"
+  )
+
+adjacent_df <-
+  pipette_df %>%
+  filter(
+    same_channel,
+    col_lag == 1
+  ) %>%
+  mutate(
+    potential_recipient_col = col_late
+  )
+
+m_adjacent_direction <-
+  lmer(
+    r ~ potential_recipient_col +
+      era_pair +
+      (1 | plate_extraction) +
+      (1 | indid1) +
+      (1 | indid2),
+    data = adjacent_df,
+    REML = FALSE
+  )
+
+summary(m_adjacent_direction)
 
 #### MATRIX FUNCTIONS ####
 
